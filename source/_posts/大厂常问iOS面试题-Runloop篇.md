@@ -30,7 +30,7 @@ tags: iOS面试题
 
 - 实际上 RunLoop 就是这样一个函数，其内部是一个 do-while 循环。当你调用 CFRunLoopRun() 时，线程就会一直停留在这个循环里；直到超时或被手动停止，该函数才会返回。
   
-  ![图片](/Users/tian/Documents/despacito2.github.io/source/images/runloop.jpg)
+  ![](images/runloop.jpg)
 
 - 内部逻辑：
   
