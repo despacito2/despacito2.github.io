@@ -5,6 +5,9 @@ tags:
 - iOS面试题
 - 性能优化
 toc: true
+categories:
+- iOS 
+- iOS面试题
 ---
 
 ## 1.造成tableView卡顿的原因有哪些？

@@ -5,6 +5,9 @@ tags:
 - iOS面试题
 - Block
 toc: true
+categories:
+- iOS 
+- iOS面试题
 ---
 
 ### 这一篇我们来研究一下objc的block并回答一下面试中的下列问题:

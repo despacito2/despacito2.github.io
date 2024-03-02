@@ -3,20 +3,21 @@ version: 5.1.0
 # Icarus theme variant, can be "default" or "cyberpunk"
 variant: default
 #variant: cyberpunk
-# Path or URL to the website's logo
-logo: /img/logo.svg
+# Path or URL to the website's logo img/logo.svg
+logo: images/logo.png
+    # text: 人间正道
 # Page metadata configurations
 head:
     # URL or path to the website's icon
-    favicon: /img/favicon.svg
+    favicon: images/faviconNew.svg
     # Web application manifests configuration
     # https://developer.mozilla.org/en-US/docs/Web/Manifest
     manifest:
         # Name of the web application (default to the site title)
-        name: 人间正道是沧桑
+        name: #人间正道是沧桑
         # The displayed name of the web application
         # when there is not enough space to display full name
-        short_name: 人间正道
+        short_name: #人间正道
         # The start URL of the web application
         start_url: https://despacito2.github.io/
         # The default theme color for the application
@@ -27,14 +28,14 @@ head:
         # The preferred display mode for the website
         display: standalone
         # Image files that can serve as application icons for different contexts
-        icons:
-            -
-                # The path to the image file
-                src: /img/logo2.svg
-                # A string containing space-separated image dimensions
-                sizes: 144x144
-                # A hint as to the media type of the image
-                type:
+        # icons:
+        #     -
+        #         # The path to the image file
+        #         src: images/logoNew.svg
+        #         # A string containing space-separated image dimensions
+        #         sizes: 144x144
+        #         # A hint as to the media type of the image
+        #         type:
     # Open Graph metadata
     # https://hexo.io/docs/helpers.html#open-graph
     open_graph:
@@ -110,7 +111,7 @@ navbar:
         文章: /archives
         分类: /categories
         标签: /tags
-        关于: /about
+        # 关于: /about
     # Links to be shown on the right of the navigation bar
     links:
         Download on GitHub:
@@ -236,19 +237,20 @@ widgets:
         position: left
         type: profile
         # Author name
-        author: 人间正道
+        author: 置身于正，勇于攀登
         # Author title
-        author_title: 置身于正，勇于攀登
+        author_title: 大丈夫生于天地间 岂能郁郁久居人下
         # Author's current location
-        location: 中国
+        location: 中国·成都
         # URL or path to the avatar image /img/avatar.svg
-        avatar: images/avatar.svg
+        #images/avatar.png
+        avatar: /images/logoNew.svg
         # Whether show the rounded avatar image
         avatar_rounded: false
         # Email address for the Gravatar
-        gravatar: w1756110665@gmail.com
+        gravatar: 
         # URL or path for the follow button
-        follow_link: https://github.com/ppoffice
+        follow_link: #https://github.com/ppoffice
         # Links to be shown on the bottom of the profile widget
         social_links:
             Github:
@@ -284,8 +286,9 @@ widgets:
         type: links
         # Names and URLs of the sites
         links:
-            Hexo: https://hexo.io
-            Bulma: https://bulma.io
+            iOS审核上架交流群: https://qm.qq.com/cgi-bin/qm/qr?k=rTH0EcmelH7hsRL9MkYD1Xw8m7RT4NNV&jump_from=webapi&authKey=B+kszDp7XNLzePIu1HeGOokQtbHdJW79aOFDatCgh/dWveDNDOJ+KHAbSdrvelkR
+            点击上方👆自动添加，QQ群:251785762: ""
+
     # Categories widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
@@ -294,7 +297,7 @@ widgets:
     # Recent posts widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: left
+        position: right
         type: recent_posts
     # Archives widget configurations
     -

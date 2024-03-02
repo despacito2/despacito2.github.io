@@ -5,6 +5,9 @@ tags:
 - iOS面试题
 - 多线程
 toc: true
+categories:
+- iOS 
+- iOS面试题
 ---
 
 ## 1.进程与线程

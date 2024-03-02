@@ -5,6 +5,9 @@ tags:
 - iOS面试题
 - Runloop
 toc: true
+categories: 
+- iOS 
+- iOS面试题
 ---
 
 ## 1.Runloop 和线程的关系？

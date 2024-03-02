@@ -5,6 +5,9 @@ tags:
 - iOS面试题
 - 组件
 toc: true
+categories:
+- iOS 
+- iOS面试题
 ---
 
 ## 1.组件化有什么好处？

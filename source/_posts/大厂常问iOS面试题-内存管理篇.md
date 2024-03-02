@@ -5,6 +5,9 @@ tags:
 - iOS面试题
 - 内存管理
 toc: true
+categories:
+- iOS 
+- iOS面试题
 ---
 
 ## 1.什么情况使用weak关键字，相比assign有什么不同？

@@ -5,6 +5,9 @@ tags:
 - iOS面试题
 - Runtime
 toc: true
+categories: 
+- iOS 
+- iOS面试题
 ---
 
 ## 1.什么是Runtime

@@ -5,6 +5,9 @@ tags:
 - iOS面试题
 - 数据结构
 toc: true
+categories:
+- iOS 
+- iOS面试题
 ---
 
 ## 1.数据结构的存储一般常用的有几种？各有什么特点？
