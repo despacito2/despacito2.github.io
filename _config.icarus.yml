@@ -327,7 +327,7 @@ widgets:
         position: left
         type: adsense
         # AdSense client ID
-        client_id: ''
+        client_id: ca-pub-4191566366727150
         # AdSense AD unit ID
         slot_id: ''
     # Follow.it email subscription widget configurations
