@@ -63,3 +63,6 @@ deploy:
   type: git
   repo: https://github.com/despacito2/despacito2.github.io.git
   branch: master
+# 自动生成sitemap
+sitemap:
+    path: sitemap.xml
