@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>标签: iOS面试真题 - 人间正道</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="人间正道"><meta name="msapplication-TileImage" content="images/faviconNew.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="人间正道"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="人间正道"><meta property="og:url" content="http://example.com/"><meta property="og:site_name" content="人间正道"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://example.com/img/og_image.png"><meta property="article:author" content="人间正道"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"人间正道","image":["http://example.com/img/og_image.png"],"author":{"@type":"Person","name":"人间正道"},"publisher":{"@type":"Organization","name":"人间正道","logo":{"@type":"ImageObject","url":"http://example.com/images/logo.png"}},"description":""}</script><link rel="icon" href="/images/faviconNew.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><script data-ad-client="ca-pub-4191566366727150" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/images/logo.png" alt="人间正道" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">文章</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/despacito2"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">标签</a></li><li class="is-active"><a href="#" aria-current="page">iOS面试真题</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-02T15:30:32.000Z" title="2024/3/2 23:30:32">2024-03-02</time>发表</span><span class="level-item"><time dateTime="2024-03-02T15:37:20.391Z" title="2024/3/2 23:37:20">2024-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS/">iOS</a><span> / </span><a class="link-muted" href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></span><span class="level-item">12 分钟读完 (大约1779个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/03/02/%E5%B8%B8%E8%A7%81-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">常见-最新iOS面试真题总结</a></p><div class="content"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><strong>近期的iOS面试求职算是经历了一波小高潮，话不多说，直接切入正题，下面是我最新总结的某些大厂以及小公司的面试题！</strong></p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li>1、iOS 基础题</li>
+<li>2、iOS 实战题</li>
+<li>3、网络题</li>
+<li>4、计算机系统题</li>
+<li>5、设计模式题</li>
+<li>6、架构 &amp; 设计题</li>
+<li>7、数据结构&amp;算法题</li>
+<li>8、额外补充</li>
+</ul>
+<h4 id="1、iOS-基础题"><a href="#1、iOS-基础题" class="headerlink" title="1、iOS 基础题"></a>1、iOS 基础题</h4><p>1，分类和扩展有什么区别？可以分别用来做什么？分类有哪些局限性？分类的结构体里面有哪些成员？</p>
+<p>2，讲一下atomic的实现机制；为什么不能保证绝对的线程安全（最好可以结合场景来说）？</p>
+<p>3，被weak修饰的对象在被释放的时候会发生什么？是如何实现的？知道sideTable么？里面的结构可以画出来么？</p>
+<p>4，Autoreleasepool 所使用的数据结构是什么？ AutoreleasePoolPage 结构体了解么？</p>
+<p>5，讲一下对象，类对象，元类，跟元类结构体的组成以及他们是如何相关联的？为什么对象方法没有保存的对象结构体里，而是保存在类对象的结构体里？</p>
+<p>6，iOS 中内省的几个方法？ class 方法和 objc_getClass 方法有什么区别?</p>
+<p>7，RunLoop的作用是什么？它的内部工作机制了解么？（最好结合线程和内存管理来说）</p>
+<p>8，哪些场景可以触发离屏渲染？（知道多少说多少）</p>
+<h4 id="2、iOS-实战题"><a href="#2、iOS-实战题" class="headerlink" title="2、iOS 实战题"></a>2、iOS 实战题</h4><p>1，有哪些场景是NSOperation比GCD更容易实现的？（或是NSOperation优于GCD的几点，知道多少说多少）</p>
+<p>2，App 启动优化策略？最好结合启动流程来说（main()函数的执行前后都分别说一下，知道多少说多少）</p>
+<p>3，App 无痕埋点的思路了解么？你认为理想的无痕埋点系统应该具备哪些特点？（知道多少说多少）</p>
+<p>4，你知道有哪些情况会导致app崩溃，分别可以用什么方法拦截并化解？（知道多少说多少）</p>
+<p>5，你知道有哪些情况会导致app卡顿，分别可以用什么方法来避免？（知道多少说多少）</p>
+<h4 id="3、网络题"><a href="#3、网络题" class="headerlink" title="3、网络题"></a>3、网络题</h4><p>1，App 网络层有哪些优化策略？</p>
+<p>2，TCP为什么要三次握手，四次挥手？</p>
+<p>3，HTTPS的握手流程？为什么密钥的传递需要使用非对称加密？双向认证了解么？</p>
+<p>4，HTTPS是如何实现验证身份和验证完整性的？</p>
+<p>5，如何用Charles抓HTTPS的包？其中原理和流程是什么？</p>
+<h4 id="4、计算机系统题"><a href="#4、计算机系统题" class="headerlink" title="4、计算机系统题"></a>4、计算机系统题</h4><p>1，了解编译的过程么？分为哪几个步骤？</p>
+<p>2，静态链接了解么？静态库和动态库的区别？</p>
+<p>3，static和const有什么区别？</p>
+<p>4，什么时候会出现死锁？如何避免？</p>
+<p>5，有哪几种锁？各自的原理？它们之间的区别是什么？最好可以结合使用场景来说</p>
+<h4 id="5、设计模式题"><a href="#5、设计模式题" class="headerlink" title="5、设计模式题"></a>5、设计模式题</h4><p>1，除了单例，观察者设计模式以外，还知道哪些设计模式？分别介绍一下</p>
+<p>2，iOS SDK 里面有哪些设计模式的实践？</p>
+<p>3，设计模式的成员构成以及工作机制是什么？</p>
+<h4 id="6、架构-设计题"><a href="#6、架构-设计题" class="headerlink" title="6、架构 &amp; 设计题"></a>6、架构 &amp; 设计题</h4><p>1，MVC和MVVM的区别？MVVM和MVP的区别？</p>
+<p>2，面向对象的几个设计原则了解么？最好可以结合场景来说。</p>
+<p>3，可以说几个重构的技巧么？你觉得重构适合什么时候来做？</p>
+<p>4，你觉得框架和设计模式的区别是什么？</p>
+<p>5，看过哪些第三方框架的源码，它们是怎么设计的？设计好的地方在哪里，不好的地方在哪里，如何改进？（这道题的后三个问题的难度已经很高了，如果不是太N的公司不建议深究）</p>
+<h4 id="7、数据结构-算法题"><a href="#7、数据结构-算法题" class="headerlink" title="7、数据结构&amp;算法题"></a>7、数据结构&amp;算法题</h4><p>1，链表和数组的区别是什么？插入和查询的时间复杂度分别是多少？</p>
+<p>2，哈希表是如何实现的？如何解决地址冲突？</p>
+<p>3，排序题：冒泡排序，选择排序，插入排序，快速排序（二路，三路）能写出那些？</p>
+<p>4，链表题：如何检测链表中是否有环？如何删除链表中等于某个值的所有节点？</p>
+<p>5，数组题：如何在有序数组中找出和等于给定值的两个元素？如何合并两个有序的数组之后保持有序？</p>
+<p>6，二叉树题：如何反转二叉树？如何验证两个二叉树是完全相等的？</p>
+<h4 id="8、额外补充"><a href="#8、额外补充" class="headerlink" title="8、额外补充"></a>8、<strong>额外补充</strong></h4><ul>
+<li><p>1.详细描述一下UI View与 ALAyer的关系draw Rect一定会影响性能吗? UI Dynamics与UIKit Animation的最本质区别是什么?</p>
+</li>
+<li><p>2.如何用 UllmageView显示超大分辨率的图?如果要支持缩放呢?</p>
+</li>
+<li><p>3.了解 fishhook吗?说说为什么 fishhook不能修改非动态连接库中的符号?</p>
+</li>
+<li><p>4.C++调用虚方法与 Objective-C发消息有什么区别?</p>
+</li>
+<li><p>5.了解 placement new吗? Objective-C中如何实现这个功能</p>
+</li>
+<li><p>6.如何在ARC环境下用C++标准库容器来管理Objective-C对象?</p>
+</li>
+<li><p>7.id、sef、 super它们从语法上有什么区别?</p>
+</li>
+<li><p>8.isa是什么?是指向Cass对象本身的指针吗?</p>
+</li>
+<li><p>9.block修改捕获变量除了用 block还可以怎么做?有哪些局限性?</p>
+</li>
+<li><p>10.NSDictionary与 NSHashTable有什么区别,它们的使用场景是怎样的?</p>
+</li>
+<li><p>11.用过Swit吗?如何评价 String index的设计？</p>
+</li>
+<li><p>12.假设 iPhone上有一个与服务器的TCP连接,此时 iPhone忽然断网,服务器能在短时间内知会 iPhone的离线吗?</p>
+</li>
+<li><p>13.为什么 Wireshark不能直接抓取SSL的原始数据？</p>
+</li>
+<li><p>14.backtrace是在用户态实现的吗?能否讲讲实现它的大致思路?</p>
+</li>
+<li><p>15.malloc的指针 double free产生的异常与访问freed指针有可能产生的异常有什么区别?为什么访问 freed指针不一定产生异常?</p>
+</li>
+<li><p>16.RunLoop是一个不停歇在运行的死循环吗?为什么?</p>
+</li>
+<li><p>17.看过 runtime的源码吗?源码中常有的fastpath、 flowpath是什么?</p>
+</li>
+<li><p>18.runtime中 SideTable(不是 SideTable)存在的意义是什么</p>
+</li>
+<li><p>19.Objective-C是如何保证系统升级后的AB稳定性的?</p>
+</li>
+</ul>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p><strong>iOS面试中刷题只是一方面准备，但是，好的面试机会，离不开技术的支持，在找工作的同时，不要忘记提升自身技术，希望求职中的iOS开发者，找到一份自己满意的工作！</strong></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-02T15:27:50.000Z" title="2024/3/2 23:27:50">2024-03-02</time>发表</span><span class="level-item"><time dateTime="2024-03-02T15:28:24.620Z" title="2024/3/2 23:28:24">2024-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS/">iOS</a><span> / </span><a class="link-muted" href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></span><span class="level-item">4 分钟读完 (大约627个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/03/02/%E9%98%BF%E9%87%8C-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">阿里-最新iOS面试真题总结</a></p><div class="content"><p>关于面试题，可能没那么多时间来总结答案，有什么需要讨论的地方欢迎大家指教。主要记录一下准备过程，和面试的一些总结，希望能帮助到正在面试或者将要面试的同学吧。</p>
+<p><strong>阿里</strong></p>
+<p><strong>一面</strong></p>
+<p>1、介绍项目</p>
+<p>2、在KVO中，他是怎么知道监听的对象发生了变化？</p>
+<p>3、字典的工作原理 ？怎100w个中是怎么快速去取value？</p>
+<p>4、一个上线的项目，知道这个方法可能会出问题，在不破坏改方法前提下，怎么搞？</p>
+<p>5、Block和函数指针的区别？</p>
+<p>6、性能优化</p>
+<p>7、YYModel和AF源码</p>
+<p>8、如何自己设计json转model</p>
+<p>9、架构</p>
+<p>他们的面试官好像都爱问一下底层的东西，比如这次面试上来机会问我KVO的问题。 问题【1】，看着好像很吊的样子，仔细一样不去思考，可能还真不是太了解， 问题【2】，这个就是纯纯的数据结构的问题了。 问题【3】，这个就是iOS的runTime的问题了，要只要isa，和一些swizzling技术 问题【4】，就是看你了解有多广泛了。</p>
+<p><strong>二面</strong></p>
+<p>1、浅拷贝和深拷贝的区别</p>
+<p>2、Block的循环引用、如何解决、原理</p>
+<p>3、Block和delegate的比较</p>
+<p>4、kvo的实现原理</p>
+<p>5、Autorelease pool的实现原理</p>
+<p>6、消息转发机制</p>
+<p>7、线程死锁的四个条件</p>
+<p>8、进程和线程的区别</p>
+<p>9、持久化</p>
+<p>10、事务的特征 中途还讨论了Masonry的约束应该写在哪里，我说应该写在layoutSubViews，他说会调用多次，然后争论了一会儿</p>
+<p><strong>三面</strong></p>
+<p>主要问了项目的一些东西 和给一些场景问我如何实现</p>
+<p>自我介绍 介绍一些项目难点</p>
+<p>主线程是相对于什么而言的</p>
+<p>一张图片的内存占用大小是由什么决定的</p>
+<p>索引的作用</p>
+<p>索引的优缺点</p>
+<p>在数组中找最小的k个数</p>
+<p>淘宝下拉加载更多如何优化</p>
+<p>淘宝页面发送HTTP请求的过程</p>
+<p>介绍一下MVVM</p>
+<p>知道哪些设计模式</p>
+<p>三面面试官主要就聊了一些具体场景问题和一些基础，基础应该是没太大问题。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-02T15:26:34.000Z" title="2024/3/2 23:26:34">2024-03-02</time>发表</span><span class="level-item"><time dateTime="2024-03-02T15:27:27.272Z" title="2024/3/2 23:27:27">2024-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS/">iOS</a><span> / </span><a class="link-muted" href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></span><span class="level-item">3 分钟读完 (大约507个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/03/02/%E8%99%8E%E7%89%99-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">虎牙-最新iOS面试真题总结</a></p><div class="content"><p>关于面试题，可能没那么多时间来总结答案，有什么需要讨论的地方欢迎大家指教。主要记录一下准备过程，和面试的一些总结，希望能帮助到正在面试或者将要面试的同学吧。</p>
+<ul>
+<li><strong>一面</strong></li>
+</ul>
+<ol>
+<li><p>项目架构，项目是自己写的吗</p>
+</li>
+<li><p>fps是怎么计算的</p>
+</li>
+<li><p>除了用cadisplay，还有什么方法吗</p>
+</li>
+<li><p>kvo怎么实现</p>
+</li>
+<li><p>leaks怎么实现</p>
+</li>
+<li><p>如何代码实现监听僵尸对象</p>
+</li>
+<li><p>imageWithName什么时候发生编解码，在什么线程</p>
+</li>
+<li><p>isa指针里面有什么</p>
+</li>
+<li><p>消息发送和消息转发流程</p>
+</li>
+<li><p>函数里面的参数怎么存储</p>
+</li>
+<li><p>oc一个空函数里面有参数吗</p>
+</li>
+<li><p>他们存在栈还是寄存器</p>
+</li>
+<li><p>红黑树等查找时间复杂度</p>
+</li>
+<li><p>nsdictionary的实现</p>
+</li>
+<li><p>iOS的各种锁</p>
+</li>
+<li><p>如何实现dispatch once，要考虑什么问题</p>
+</li>
+<li><p>同一线程里面使用两个@synconize会怎么样，是递归锁还是非递归锁</p>
+</li>
+<li><p>如何增加按钮点击范围</p>
+</li>
+</ol>
+<ul>
+<li><strong>二面</strong></li>
+</ul>
+<ol>
+<li><p>说一下ARC</p>
+</li>
+<li><p>autoreleasepool可以用来干嘛</p>
+</li>
+<li><p>里面的对象什么时候释放，是出来就释放吗</p>
+</li>
+<li><p>消息转发可以用来干什么</p>
+</li>
+<li><p>runloop是干什么，你用来干什么了</p>
+</li>
+<li><p>说一下C++多态和虚函数表</p>
+</li>
+<li><p>TCP如何保证数据传输完整性</p>
+</li>
+<li><p>TCP为什么三次握手</p>
+</li>
+<li><p>http和https，全程都是非对称加密吗</p>
+</li>
+<li><p>开放性问题，很多乱序数据过来，你要怎么考虑排序方法的设计</p>
+</li>
+<li><p>对RxSwift的看法，有用过吗？</p>
+</li>
+</ol>
+<ul>
+<li><strong>三面</strong></li>
+</ul>
+<ol>
+<li><p>iOS对象指针大小</p>
+</li>
+<li><p>对象分配到堆还是栈</p>
+</li>
+<li><p>http怎么区分header和body</p>
+</li>
+<li><p>多线程可以访问同一个对象吗，多进程呢</p>
+</li>
+<li><p>视频pts和dts</p>
+</li>
+<li><p>视频丢帧丢哪个好点</p>
+</li>
+<li><p>iOS各种锁的性能，琐是毫秒级别还是微妙级别</p>
+</li>
+<li><p>http请求是异步还是同步</p>
+</li>
+<li><p>怎么看待rn和flutter</p>
+</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-02T15:25:41.000Z" title="2024/3/2 23:25:41">2024-03-02</time>发表</span><span class="level-item"><time dateTime="2024-03-02T15:26:15.211Z" title="2024/3/2 23:26:15">2024-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS/">iOS</a><span> / </span><a class="link-muted" href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></span><span class="level-item">6 分钟读完 (大约900个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/03/02/%E8%85%BE%E8%AE%AF-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">腾讯-最新iOS面试真题总结</a></p><div class="content"><p><strong>一面</strong></p>
+<p>1、介绍一下实习的项目，任务分工,做了哪些工作？介绍实习内容</p>
+<p>2、网络相关的：项目里面使用到什么网络库，用过ASIHTTP库吗</p>
+<p>3、断点续传怎么实现？需要设置什么？</p>
+<p>4、在杭州HTTP请求服务器响应快，可能离服务器距离近，而在深圳访问就很慢很慢，会是什么原因？如果用户投诉，怎么分析这个问题？</p>
+<p>5、HTTP请求的哪些方法用过？什么时候选择get、post、put？</p>
+<p>6、TCP建立连接的过程，断开连接的过程，为什么是四次握手？</p>
+<p>7、项目里面的数据存储都用了哪些？知道iOS里面有哪些数据存储方法？什么时候该用哪些方法存储？</p>
+<p>8、MVVM如何实现绑定</p>
+<p>9、block和通知的区别，分别适用什么场景</p>
+<p>10、算法。连续问了好几个，都是数组，层层递进的，但是我忘了，只记得最后是找出数组中重复的数字</p>
+<p>11、进程和线程的区别</p>
+<p>12、程序在运行时操作系统除了分配内存空间还有什么</p>
+<p>13、进程间通信的方式</p>
+<p>14、如何检测应用是否卡顿</p>
+<p>15、发布出去的版本，怎么收集crash日志？不使用bugly等第三方平台或者这些第三方平台是怎么收集crash日志的？</p>
+<p>16、在block里面使用_property会造成循环引用吗？怎么解决？除了使用self-&gt;_property，可以使用valueforkey来访问吗 在block里面可以修改它的值吗setvalueforkey？可以修改它的值，可以用valueforkey来解决，显式的的使用self，block外先持有self的弱引用。</p>
+<p><strong>二面</strong></p>
+<p>1、OC中对象的结构</p>
+<p>2、多态</p>
+<p>3、Ping是什么协议</p>
+<p>4、知道MTU吗</p>
+<p>5、ARC和MRC的本质区别是什么？</p>
+<p>6、NSThread，GCD，NSOperation相关的。开启一条线程的方法？线程可以取消吗？</p>
+<p>7、子线程中调用connection方法，为什么不回调？因为没有加入runloop，执行完任务就销毁了，所以没有回调。</p>
+<p>8、MVC和MVVM的区别</p>
+<p>9、了解哪些设计模式</p>
+<p>10、存一个通讯录，包括增删改查，用什么数据结构</p>
+<p>11、autorelease变量什么时候释放？手动添加的是大括号结束的时候释放，系统自动释放是在12、当前runloop循环结束的时候</p>
+<p>13、那子线程中的autorelease变量什么时候释放？</p>
+<p>14、子线程里面，需要加autoreleasepool吗</p>
+<p>15、GCD和NSOperation的区别？</p>
+<p>16、项目里面遇到过死锁吗？怎么解决？数据库访问本来就是线程安全的，不会造成死锁啊。什么是死锁？</p>
+<p>17、Viewcontroller的生命周期？</p>
+<p>18、在init方法里面，设置背景颜色，会生效吗 会生效。为什么会？</p>
+<p>19、WWDC2016公布了哪些新特性？对苹果系列的最新特性有关注吗</p>
+<p>20、看过哪些源码，讲讲思路</p>
+<p>21、两个链表找第一个相同结点</p>
+<p>22、字符串旋转</p>
+<p>23、找链表的倒数第k个结点</p>
+<p>24、把一个链表比某个值大的放在左边，比它小的放在右边</p>
+<p>25、二叉树的中序遍历，非递归</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-02T15:24:26.000Z" title="2024/3/2 23:24:26">2024-03-02</time>发表</span><span class="level-item"><time dateTime="2024-03-02T15:25:21.852Z" title="2024/3/2 23:25:21">2024-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS/">iOS</a><span> / </span><a class="link-muted" href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></span><span class="level-item">6 分钟读完 (大约830个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/03/02/%E7%BE%8E%E5%9B%A2-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">美团-最新iOS面试真题总结</a></p><div class="content"><p>关于面试题，可能没那么多时间来总结答案，有什么需要讨论的地方欢迎大家指教。主要记录一下准备过程，和面试的一些总结，希望能帮助到正在面试或者将要面试的同学吧。</p>
+<p><strong>美团</strong></p>
+<p><strong>一面</strong></p>
+<p>1、简历上写的项目问了一遍，然后开始问知识点。</p>
+<p>2、volley的源代码，在图片缓存部分讨论了挺长时间，http中缓存机制，</p>
+<p>3、视觉控制器的生命周期</p>
+<p>4、数据库</p>
+<p>5、多线程（NSTread、NSOPeration、GCDA+block）</p>
+<p>6、http协议get post的区别</p>
+<p>7、手机适配一些方案</p>
+<p>8、真机调试、项目上线注意事项</p>
+<p>9、静态方法是否能被重写 这些大概聊了1个半小时，开始的时候还有些紧张，慢慢聊开了，就好多了，面试官的语速有点快，老是需要面试官重复一遍，我也不经意间语速也变快了，不过能看出来面试官还是很厉害的。</p>
+<p><strong>二面</strong></p>
+<p>1、id和nill代表什么（nill和NULL的区别）</p>
+<p>2、向一个nill对象发送消息会发生什么？</p>
+<p>3、http中的同步和异步</p>
+<p>4、MVC 和 MVVM 的区别。 用 MVVM 实现一个业务。VC 是入口，VC1 显示 “省” 的列表，VC2 显示省关联的 “市” 的列表，VC3 显示市关联的 “县” 的列表。VC 到 VC1，VC1到 VC2，VC2 到 VC3，VC3 再跳转到 VC。相关点在于如何设计 ViewModel 和 Model ，以及 VC3 到 VC。 如何编写单元测试，比如写了一个网络库，如何测试该网络库，用例怎么写的更全面一些。 代码从 Git 上拉下来到生成 .ipa 都有哪些过程，期间都生成了什么文件。 最近读过哪些书，看过哪些框架，有什么收获。 谈到 JSPatch，问 JSPatch 是如何处理 Block 的。 自己擅长的地方。 遇到过什么样的挫折。</p>
+<p>新增二面被问到的问题：如果没有instruments，该如何检测memory leak, zombie object 之类的问题。</p>
+<p><strong>三面</strong></p>
+<p>1、iOS是如何进行资源管理的。</p>
+<p>2、Python比较重要的几个特性</p>
+<p>3、网络五层结构，每一层协议，由于我网络不是很好，还问了一些其他的问题（例如MAC地址和ip地址的区别等）。</p>
+<p>先谈了下前两面的感受和问题，又和面试官聊到了单例和全局变量的区别。 Block和Protocol的区别，Block是为了解决什么问题而使用的。 iOS 的设计模式。iOS 为什么没有类似于 Java 和 C 之类的 “Builder” 的构造模式。 冒泡、插入、快速排序的平均时间复杂度和最坏时间复杂度。</p>
+<p>堆排序。 有时间复杂度为 O(n) 的排序吗？ 最近从 stackOverFlow 上解决过的问题，读过的开源框架，读过的书，业余兴趣，最有成就感的事情。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-02T15:23:39.000Z" title="2024/3/2 23:23:39">2024-03-02</time>发表</span><span class="level-item"><time dateTime="2024-03-02T15:24:10.913Z" title="2024/3/2 23:24:10">2024-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS/">iOS</a><span> / </span><a class="link-muted" href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></span><span class="level-item">5 分钟读完 (大约685个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/03/02/%E7%99%BE%E5%BA%A6-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">百度-最新iOS面试真题总结</a></p><div class="content"><p>关于面试题，可能没那么多时间来总结答案，有什么需要讨论的地方欢迎大家指教。主要记录一下准备过程，和面试的一些总结，希望能帮助到正在面试或者将要面试的同学吧。</p>
+<p><strong>百度</strong></p>
+<p><strong>一面</strong></p>
+<p>1、iOS基础知识</p>
+<p>2、Python基础知识，大概是多线程，线程安全，集合类，JVM，类相关知识等。</p>
+<p>3、iOS一些源码的阅读</p>
+<p>4、优秀的第三方框架源码阅读</p>
+<p>5、GLSurfaceView的相关知识，OpenGL，Shader，绘制流程。</p>
+<p>6、询问当前做的项目，以及到具体的实现和优化。</p>
+<p>7、多进程间的通讯，Binder机制。</p>
+<p>8、询问看过哪些框架源码，EventBus，Volley讲了一下。</p>
+<p><strong>二面</strong></p>
+<p>1、Delegate 、Notification和KVO比较各自的优缺点</p>
+<p>2、在一个UI的正中间实现一个正方形的红色视图有几种方式？</p>
+<p>3、手触碰到屏幕的时候，响应机制是怎样的？第一响应者是谁？追问 UIView和UIResponse的关系是什么？</p>
+<p>4、UIViewController的生命周期是什么？追问 UIViewController 只alloc而没用到的时候，</p>
+<p>5、UIViewController 的view是否加载了？如果没有加载那什么时候加载？ 直接用UILabel和自己用DrawRect画UILabel，哪个性能好？为什么？哪个占用的内存少？为什么?</p>
+<p>6、AFNetworking是否支持ipv6？</p>
+<p>7、项目采用64位，为什么要用64位？怎么修改成64位？i386是什么？他们有什么关系?</p>
+<p>8、iOS的应用程序有几种状态？追问，退到后台代码是否可以执行？双击home键，代码是否可以执行？</p>
+<p>9、一般使用的图标内存为多大？比如200×300的图片，内存应该占用多少比较合理？</p>
+<p>10、说说你对内存泄漏的看法，追问，block为什么容易引起内存泄漏？</p>
+<p>11、[object copy]是浅拷贝还是深拷贝？为什么是浅拷贝？copy是实现了哪个协议？</p>
+<p>12、Images.xcassets和直接用图片有什么不一样？</p>
+<p><strong>三面</strong></p>
+<p>全是问得iOS方面的问题，问得真的很细，需要基础很扎实，对各个机制真的足够理解，不然确实有点难回答。</p>
+<p>1、内存管理方面的</p>
+<p>2、多线程</p>
+<p>3、各种队列</p>
+<p>4、线程锁</p>
+<p>5、MVVM 就是考察一下我iOS方面的能力到底是否有水分吧。问得很细，确实需要基础足够扎实才行。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-02T15:22:11.000Z" title="2024/3/2 23:22:11">2024-03-02</time>发表</span><span class="level-item"><time dateTime="2024-03-02T15:23:23.099Z" title="2024/3/2 23:23:23">2024-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS/">iOS</a><span> / </span><a class="link-muted" href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></span><span class="level-item">2 分钟读完 (大约341个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/03/02/%E6%8B%BC%E5%A4%9A%E5%A4%9A-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">拼多多-最新iOS面试真题总结</a></p><div class="content"><p>关于面试题，可能没那么多时间来总结答案，有什么需要讨论的地方欢迎大家指教。主要记录一下准备过程，和面试的一些总结，希望能帮助到正在面试或者将要面试的同学吧。</p>
+<h3 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h3><ol>
+<li><p>JSON转模型如何实现；夜间模式；播放器架构设计</p>
+</li>
+<li><p>请求的过程</p>
+</li>
+<li><p>服务端返回格式除了json还有其他的吗？</p>
+</li>
+<li><p>哪些OC对象是线程安全的</p>
+</li>
+<li><p>为什么要在主线程更新UI</p>
+</li>
+<li><p>如何保证OC容器在多线程下的数据安全性</p>
+</li>
+<li><p>SDWebImage的内存怎么设计的，更新原则是什么</p>
+</li>
+<li><p>两个算法题：</p>
+<ol>
+<li>判断括号匹配性</li>
+<li>只有一种括号，计算最少加多少个括号，使其满足匹配</li>
+</ol>
+</li>
+</ol>
+<h3 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h3><ol>
+<li><p>+load和+initialize怎么理解的，什么时候会被调用，分别讨论父类重写而子类没重写的情况</p>
+</li>
+<li><p>怎么理解OC的动态性</p>
+</li>
+<li><p>介绍下消息转发机制，说一下这些过程中用到的系统api</p>
+</li>
+<li><p>怎么理解Block的</p>
+</li>
+<li><p>Block的变量截获机制</p>
+</li>
+<li><p>__block的实现原理</p>
+</li>
+<li><p>内存管理机制</p>
+</li>
+<li><p>用户点击屏幕，系统是怎么找到一个view并决定由它来响应事件的</p>
+</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-02T15:21:17.000Z" title="2024/3/2 23:21:17">2024-03-02</time>发表</span><span class="level-item"><time dateTime="2024-03-02T15:21:59.152Z" title="2024/3/2 23:21:59">2024-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS/">iOS</a><span> / </span><a class="link-muted" href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></span><span class="level-item">5 分钟读完 (大约685个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/03/02/%E6%8A%96%E9%9F%B3-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">抖音-最新iOS面试真题总结</a></p><div class="content"><p>关于面试题，可能没那么多时间来总结答案，有什么需要讨论的地方欢迎大家指教。主要记录一下准备过程，和面试的一些总结，希望能帮助到正在面试或者将要面试的同学吧。</p>
+<p><strong>一面</strong></p>
+<ol>
+<li><p>最近公共父节点（两个节点，都可能为null，都可能不在树上。）</p>
+</li>
+<li><p>反转链表（常规题）</p>
+</li>
+<li><p>HTTP了解吗？HTTP2.0介绍下</p>
+</li>
+<li><p>iOS9-13，每个版本讲一个特性</p>
+</li>
+<li><p>怎么实现多个任务执行完后，再统一处理（应该是同步阻塞、栅栏函数、调度组）</p>
+</li>
+<li><p>不让用SDWebImage，如何实现类似逻辑 （自己设计图片请求和缓存，简单讲了SDWebImage的思路）</p>
+</li>
+<li><p>每个TableViewCell都有一个UIImageView要加载图片，如果没有缓存，有五个Cell请求一个url，同时发请求肯定是不实际的，如何处理？</p>
+</li>
+<li><p>微信TableView滑动的时候，动图是不动的，为什么？（Runloop的Mode决定的）</p>
+</li>
+<li><p>有了解过WebSocket吗？</p>
+</li>
+</ol>
+<p><strong>二面</strong></p>
+<ol>
+<li><p>如何不试用递归，打印所有一个UIView所有的subviews</p>
+</li>
+<li><p>设计一个图片缓存系统，并代码实现</p>
+</li>
+<li><p>介绍基于LLVM&#x2F;Clang的静态分析</p>
+</li>
+<li><p>七层协议栈</p>
+</li>
+<li><p>HTTP是哪一层的协议</p>
+</li>
+<li><p>HTTP常见的返回码有哪些？</p>
+</li>
+<li><p>HTTP除了GET、POST还有哪些？（UPDATE、DELETE、HEAD）</p>
+</li>
+<li><p>HTTPS介绍一下</p>
+</li>
+<li><p>HTTPS能防止中间人攻击吗？</p>
+</li>
+<li><p>TCP和UDP的区别</p>
+</li>
+<li><p>线程和进程的区别</p>
+</li>
+<li><p>线程之间如何进行通讯</p>
+</li>
+<li><p>不使用gcd，如何保证线程安全？</p>
+</li>
+<li><p>iOS有哪些多线程方式？（NSOperation、NSThread、GCD）</p>
+</li>
+<li><p>同步和异步有什么区别？</p>
+</li>
+<li><p>串行队列和并行队列有什么区别？</p>
+</li>
+<li><p>队列和线程的关系</p>
+</li>
+<li><p>死锁是怎么产生的？</p>
+</li>
+</ol>
+<p><strong>三面</strong></p>
+<ol>
+<li><p>合并排序链表</p>
+</li>
+<li><p>HTTPS用的对称加密还是非对称加密？</p>
+</li>
+<li><p>TCP的慢启动，快恢复介绍下</p>
+</li>
+<li><p>客户端发送网络请求，到拿到响应的整个过程 （类似打开一个网页的过程）</p>
+</li>
+<li><p>接上题，如果DNS解析的时候，某个ISP服务器没有了，这时候逻辑是怎样的？</p>
+</li>
+<li><p>介绍了下字典转模型的设计+夜间模式的设计</p>
+</li>
+<li><p>为什么不用成熟的字典转模型的三方？有了解过吗？</p>
+</li>
+<li><p>夜间模式有什么缺点，能怎么优化？</p>
+</li>
+<li><p>锁有哪些？</p>
+</li>
+<li><p>数据存储，怎么存的（FMDB）</p>
+</li>
+<li><p>线程安全错误是怎么出现的？</p>
+</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-02T15:19:11.000Z" title="2024/3/2 23:19:11">2024-03-02</time>发表</span><span class="level-item"><time dateTime="2024-03-02T15:20:32.830Z" title="2024/3/2 23:20:32">2024-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS/">iOS</a><span> / </span><a class="link-muted" href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></span><span class="level-item">4 分钟读完 (大约593个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/03/02/%E5%A4%B4%E6%9D%A1-%E2%80%94%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">头条-最新iOS面试真题总结</a></p><div class="content"><p>关于面试题，可能没那么多时间来总结答案，有什么需要讨论的地方欢迎大家指教。主要记录一下准备过程，和面试的一些总结，希望能帮助到正在面试或者将要面试的同学吧。</p>
+<p><strong>头条</strong></p>
+<p><strong>一面</strong></p>
+<p>1、自我介绍</p>
+<p>2、项目相关</p>
+<p>3、怎么自定义导航跳转</p>
+<p>4、谈谈runtime的理解</p>
+<p>5、KVC的用途</p>
+<p>6、使用method swizzling要注意什么？（进行版本迭代的时候需要进行一些检验，防止系统库的函数发生了变化）</p>
+<p>7、谈对引用计数的理解</p>
+<p>8、谈谈runloop的理解</p>
+<p>9、runloop有哪些状态</p>
+<p>10、autoreleasepool的使用场景</p>
+<p>11、TableView优化，怎么减少卡顿</p>
+<p>12、copy assign retain weak关键词</p>
+<p>13、JSON转Model</p>
+<p>14、代码布局</p>
+<p>15、多屏幕适配</p>
+<p>16、HTTP请求头和响应头</p>
+<p>17、Cookie</p>
+<p>18、NSCache</p>
+<p>19、自己设计一个缓存器</p>
+<p>20、怎么实现LRU</p>
+<p>21、SDWebImage</p>
+<p>22、二叉树先序遍历（递归和非递归）</p>
+<p><strong>二面</strong></p>
+<p>1、MVC的一些缺点</p>
+<p>2、讲一讲其它架构</p>
+<p>3、你知道哪些编码方式</p>
+<p>4、算法字符串翻转</p>
+<p>5、多线程的方式和它们的区别</p>
+<p>6、队列和线程的关系</p>
+<p>7、一道线程安全的题</p>
+<p>8、有哪些锁</p>
+<p>9、属性的关键字</p>
+<p>10、assign可以用于OC对象吗</p>
+<p>11、copy和strong的区别</p>
+<p>12、weak如何实现自动赋nil</p>
+<p>13、为什么不可变对象要用copy</p>
+<p>14、assing可以使用在对象中吗</p>
+<p>15、Pod update和pod install的区别</p>
+<p>16、layoutIfNeeded和setNeedsLayout的区别</p>
+<p>17、抓包工具抓取HTTPS的原理</p>
+<p>18、isEquel和hash的关系</p>
+<p>19、bitmap的结构</p>
+<p>20、可变数组的实现原理</p>
+<p>21、如何hook一个对象的方法，而不影响其它对象</p>
+<p>22、如何避免if else</p>
+<p>23、自旋锁和互斥锁的区别</p>
+<p><strong>三面</strong></p>
+<p>1、介绍项目，主要介绍自己强项一点的地方</p>
+<p>2、数组cop后里面的元素会复制一份新的吗</p>
+<p>3、数组的浅拷贝与深拷贝</p>
+<p>4、TCP为什么是三次握手和四次挥手</p>
+<p>头条一直都是视频面，而且是一条龙服务。总体来说感觉不错，反正主要就是需要基础足够扎实；</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-02T15:15:31.000Z" title="2024/3/2 23:15:31">2024-03-02</time>发表</span><span class="level-item"><time dateTime="2024-03-02T15:19:49.704Z" title="2024/3/2 23:19:49">2024-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS/">iOS</a><span> / </span><a class="link-muted" href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></span><span class="level-item">13 分钟读完 (大约1929个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/03/02/%E5%BF%AB%E6%89%8B%E2%80%94%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">快手-最新iOS面试真题总结</a></p><div class="content"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>面的是快手X3岗位，视频面试，不支持周末，但是可以选择晚上时间。视频面试是通过牛客网进行的，以下是记下来的各轮面试题，对于一些iOS基础知识就不做解答了。</p>
+<h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><p>1、用递归写一个算法，计算从1到100的和。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">func sum(value: Int) -&gt; Int &#123;</span><br><span class="line">    if value &lt;= 0 &#123;</span><br><span class="line">        return 0</span><br><span class="line">    &#125;</span><br><span class="line">    var number = value</span><br><span class="line">    return value + sum(value: number - 1)</span><br><span class="line">&#125;</span><br><span class="line">// 计算过程</span><br><span class="line">let result = sum(value: 100)</span><br><span class="line">print(result)</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>写完算法之后又围绕着问了几个问题，都是算法基础：</p>
+<ul>
+<li>算法的时间复杂度是多少</li>
+<li>递归会有什么缺点</li>
+<li>不用递归能否实现，复杂度能否降到O(1)</li>
+</ul>
+<p>2、<code>property</code>的作用是什么，有哪些关键词，分别是什么含义？</p>
+<p>3、父类的<code>property</code>是如何查找的？</p>
+<p>4、<code>NSArray</code>、<code>NSDictionary</code>应该如何选关键词？</p>
+<p>5、<code>copy</code>和<code>muteCopy</code>有什么区别，深复制和浅复制是什么意思，如何实现深复制？</p>
+<p>6、用<code>runtime</code>做过什么事情？<code>runtime</code>中的方法交换是如何实现的？</p>
+<p>7、讲一下对KVC合KVO的了解，KVC是否会调用<code>setter</code>方法？</p>
+<p>8、<code>__block</code>有什么作用</p>
+<p>9、说一下对GCD的了解，它有那些方法，分别是做什么用的？</p>
+<p>10、对二叉树是否了解？</p>
+<p>面试官是想接着问这方面的问题的。我当时说了不了解，然后就没有后续了。</p>
+<h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><p>1、ARC和MRC的区别，iOS是如何管理引用计数的，什么情况下引用计数加1什么情况引用计数减一？</p>
+<p>2、在MRC下执行<code>[object autorelease]</code>会发生什么，<code>autorelease</code>是如何实现的？</p>
+<p>3、OC如何实现多继承？</p>
+<p>这个当时没有答好。其实借助于消息转发，<code>protocol</code>和类别都可以间接实现多继承。</p>
+<p>4、对设计模式有什么了解，讲一下其中一种是如何使用的。</p>
+<p>5、有没有哪个开源库让你用的很舒服，讲一下让你舒服的地方。</p>
+<p>6、一张100*100，RGBA的png图像解压之后占多大内存空间。</p>
+<p>5、算法题</p>
+<p>题目：给定一个个数字arr，判断数组arr中是否所有的数字都只出现过一次。</p>
+<p>这个并没有要求写出来，说是提供思路就行了。我当时给的方案是在便利数组的时候，用一个字典把便利的元素存起来，如果在后面的便利过程中新元素在字典中存在过就说明，有重复数字出现。时间复杂度是O(n)。</p>
+<p>当时也问了有没有办法进行优化，我当时想到了将数组转成<code>Set</code>，然后和原数组比较，两个集合的数量是否变化。</p>
+<p>7、因为我跟他介绍自己Swift用的多一些，然后问了些Swift跟OC的区别，各自的优缺点。</p>
+<p>8、为什么离职，有什么职业规划。</p>
+<h2 id="三面"><a href="#三面" class="headerlink" title="三面"></a>三面</h2><p>1、给定一个Int型数组，用里面的元素组成一个最大数，因为数字可能非常大，用字符串输出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [3,30,34,5,9]</span><br><span class="line">输出: 9534330</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>这个是leetcode的<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/largest-number/">179题</a>，难度中等。面试官让先说思路，再去做题。事先说一下这个题我没有做过。当时的思路是用冒泡法进行排序，排序的前提是将较少位数的数字进行循环补齐，例如3和30的比较，变成33和30的比较，34和4的比较变成34和44的比较，然后将结果从大到小整合成字符串输出。</p>
+<p>但是做题是却发现没那么简单，位数的补齐对于2位和3位数的比较还需要求位数的最小公倍数，将他们都转成6位数才能比较。在挣扎了5分钟做了就做罢了。</p>
+<p>后来再去做这道题，其实这就是一个排序而已，只不过他的规则是按高位优先级更高的原则，而这一点跟字符串的比较保持一致，如果再加一些Swift的高阶函数，就可以写成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">func largestNumber(_ nums: [Int]) -&gt; String &#123;</span><br><span class="line">    let sort = nums.map &#123;&quot;\($0)&quot;&#125;.sorted &#123; (lStr, rStr) -&gt; Bool in</span><br><span class="line">        return lStr + rStr &gt; rStr + lStr</span><br><span class="line">    &#125;</span><br><span class="line">    let result = sort.joined()</span><br><span class="line">    if result.prefix(1) == &quot;0&quot; &#123;</span><br><span class="line">        return &quot;0&quot;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return result</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E5%BF%AB%E6%89%8B1.jpg"></p>
+<p>2、项目中有这么一个方法<code>func findfile(dir: String suffix: String) -&gt; [String]</code> ，可以通过输入文件夹目录，和后缀检索出所需的文件。</p>
+<p>例如需要在某个文件中检索txt文件或者mp4文件，那就传入dir和suffix就行了。现在又有一些需求，例如需要检索utf8格式的txt或者h264编码的mp4，也会有一些例如查找最近一周更新过的文件这样的需求，你如何优化这个类，让它满足这些情况？</p>
+<p>我首先想到的是这么多需求不可能一个方法就完成，需要根据不同场景拆出不同的方法，但是这些同属于文件操作，会有一个共同使用的方法就是检索文件。这个方法需要传入文件目录，然后递归的返回当前目录所有文件路径。外部不同场景的调用逻辑就用一个<code>enum</code>完成，不同值对应相同范围的不同种类。</p>
+<p>面试官比较关注内部共用的文件检索怎么写，他说子文件如果过多怎么办，如何优化。我有点懵，查找文件至少是要遍历一遍的，子文件过多，这个应该是没法优化的啊。中间卡了一段时间，后来他给了提示说是不是可以用block实现，将文件路径返回出去，由外部决定当前文件是否可用，最终外部的调用类是这个样子。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//我的方案</span><br><span class="line">//func findDir(_ dir: String) -&gt; [String]</span><br><span class="line">//block方案</span><br><span class="line">func findDir(_ dir: String, block: ((String) -&gt; Bool))</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>我想来确实没毛病，用block返回内容至少不会将该目录的所有文件都由一个对象持有，而前面一堆的铺垫其实也都是为验证block方案的好处。</p>
+<p>其实事后想下这个问题没啥难的，这种写法自己也有写过，但当时就是没想起来，可能前面一圈的铺垫给我带偏了吧，说亏也不亏，以后多多努力吧。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><a target="_blank" rel="noopener" href="https://github.com/LGBamboo/iOS-article.01/blob/main/iOS%E9%9D%A2%E8%AF%95--%E6%9C%80%E6%96%B0%E5%BF%AB%E6%89%8BiOS%E9%9D%A2%E8%AF%95%E9%A2%98.md#%E6%80%BB%E7%BB%93"></a></p>
+<p>整体来看，快手的面试题跟我在别处看到的iOS面试题对比要简单些。一面主要是基础知识，二面考察更全面一些，更多让自己谈一些对技术的理解，三面则是更偏实践一些。</p>
+<p>算法虽然三轮都有，但相对比较简单，即使写不出来，有思路也是可以的。当然写出来肯定是加分项，所以大家准备面试时，应该都看一下。算法相关的，排序，数组，二叉树，这几类是重点。</p>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/tags/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/page/0/">上一页</a></div><div class="pagination-next"><a href="/tags/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/page/2/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/tags/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">1</a></li><li><a class="pagination-link" href="/tags/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/logoNew.svg" alt="置身于正，勇于攀登"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">置身于正，勇于攀登</p><p class="is-size-6 is-block">大丈夫生于天地间 岂能郁郁久居人下</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国·成都</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">24</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">26</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/despacito2"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/WTF_C69"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://qm.qq.com/cgi-bin/qm/qr?k=rTH0EcmelH7hsRL9MkYD1Xw8m7RT4NNV&amp;jump_from=webapi&amp;authKey=B+kszDp7XNLzePIu1HeGOokQtbHdJW79aOFDatCgh/dWveDNDOJ+KHAbSdrvelkR" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">iOS审核上架交流群</span></span><span class="level-right"><span class="level-item tag">qm.qq.com</span></span></a></li><li><a class="level is-mobile" href="" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">点击上方👆自动添加，QQ群:251785762</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/iOS/"><span class="level-start"><span class="level-item">iOS</span></span><span class="level-end"><span class="level-item tag">24</span></span></a><ul><li><a class="level is-mobile" href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/"><span class="level-start"><span class="level-item">iOS面试真题</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E9%A2%98/"><span class="level-start"><span class="level-item">iOS面试题</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Block/"><span class="tag">Block</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NSNotification/"><span class="tag">NSNotification</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Runloop/"><span class="tag">Runloop</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Runloop-KVO/"><span class="tag">Runloop&amp;KVO</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Runtime/"><span class="tag">Runtime</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/"><span class="tag">iOS面试真题</span><span class="tag">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS%E9%9D%A2%E8%AF%95%E9%A2%98/"><span class="tag">iOS面试题</span><span class="tag">13</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"><span class="tag">内存管理</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"><span class="tag">多线程</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%A4%B4%E6%9D%A1/"><span class="tag">头条</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8/"><span class="tag">字节跳动</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B8%B8%E8%A7%81/"><span class="tag">常见</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BF%AB%E6%89%8B/"><span class="tag">快手</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"><span class="tag">性能优化</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%96%E9%9F%B3/"><span class="tag">抖音</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8B%BC%E5%A4%9A%E5%A4%9A/"><span class="tag">拼多多</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="tag">数据结构</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%99%BE%E5%BA%A6/"><span class="tag">百度</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95/"><span class="tag">算法</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BB%84%E4%BB%B6/"><span class="tag">组件</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BE%8E%E5%9B%A2/"><span class="tag">美团</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%85%BE%E8%AE%AF/"><span class="tag">腾讯</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%99%8E%E7%89%99/"><span class="tag">虎牙</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%A7%86%E5%9B%BE-%E5%9B%BE%E5%BD%A2/"><span class="tag">视图&amp;图形</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%80%9A%E7%9F%A5%E6%9C%BA%E5%88%B6%E8%A7%A3%E6%9E%90/"><span class="tag">通知机制解析</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%98%BF%E9%87%8C/"><span class="tag">阿里</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-02T15:30:32.000Z">2024-03-02</time></p><p class="title"><a href="/2024/03/02/%E5%B8%B8%E8%A7%81-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">常见-最新iOS面试真题总结</a></p><p class="categories"><a href="/categories/iOS/">iOS</a> / <a href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-02T15:27:50.000Z">2024-03-02</time></p><p class="title"><a href="/2024/03/02/%E9%98%BF%E9%87%8C-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">阿里-最新iOS面试真题总结</a></p><p class="categories"><a href="/categories/iOS/">iOS</a> / <a href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-02T15:26:34.000Z">2024-03-02</time></p><p class="title"><a href="/2024/03/02/%E8%99%8E%E7%89%99-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">虎牙-最新iOS面试真题总结</a></p><p class="categories"><a href="/categories/iOS/">iOS</a> / <a href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-02T15:25:41.000Z">2024-03-02</time></p><p class="title"><a href="/2024/03/02/%E8%85%BE%E8%AE%AF-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">腾讯-最新iOS面试真题总结</a></p><p class="categories"><a href="/categories/iOS/">iOS</a> / <a href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-02T15:24:26.000Z">2024-03-02</time></p><p class="title"><a href="/2024/03/02/%E7%BE%8E%E5%9B%A2-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/">美团-最新iOS面试真题总结</a></p><p class="categories"><a href="/categories/iOS/">iOS</a> / <a href="/categories/iOS/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/images/logo.png" alt="人间正道" height="28"></a><p class="is-size-7"><span>&copy; 2024 人间正道</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/despacito2"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
