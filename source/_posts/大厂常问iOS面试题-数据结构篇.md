@@ -1,13 +1,14 @@
 ---
 title: 大厂常问iOS面试题--数据结构篇
-date: 2024-03-01 17:16:02
 tags:
-- iOS面试题
-- 数据结构
+  - iOS面试题
+  - 数据结构
 toc: true
 categories:
-- iOS 
-- iOS面试题
+  - iOS
+  - iOS面试题
+abbrlink: 88a6dead
+date: 2024-03-01 17:16:02
 ---
 
 ## 1.数据结构的存储一般常用的有几种？各有什么特点？

@@ -1,13 +1,14 @@
 ---
 title: 快手-最新iOS面试真题总结
-date: 2024-03-02 23:15:31
 tags:
-- iOS面试真题
-- 快手
+  - iOS面试真题
+  - 快手
 toc: true
 categories:
-- iOS 
-- iOS面试真题
+  - iOS
+  - iOS面试真题
+abbrlink: 1fe28a79
+date: 2024-03-02 23:15:31
 ---
 
 ## 背景

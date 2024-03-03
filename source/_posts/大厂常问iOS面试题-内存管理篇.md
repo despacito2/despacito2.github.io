@@ -1,13 +1,14 @@
 ---
 title: 大厂常问iOS面试题--内存管理篇
-date: 2024-03-01 14:03:56
 tags:
-- iOS面试题
-- 内存管理
+  - iOS面试题
+  - 内存管理
 toc: true
 categories:
-- iOS 
-- iOS面试题
+  - iOS
+  - iOS面试题
+abbrlink: d873727c
+date: 2024-03-01 14:03:56
 ---
 
 ## 1.什么情况使用weak关键字，相比assign有什么不同？

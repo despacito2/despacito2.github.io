@@ -1,13 +1,14 @@
 ---
 title: 大厂常问iOS面试题--Block篇
-date: 2024-03-01 17:49:15
 tags:
-- iOS面试题
-- Block
+  - iOS面试题
+  - Block
 toc: true
 categories:
-- iOS 
-- iOS面试题
+  - iOS
+  - iOS面试题
+abbrlink: fff5bffc
+date: 2024-03-01 17:49:15
 ---
 
 ### 这一篇我们来研究一下objc的block并回答一下面试中的下列问题:

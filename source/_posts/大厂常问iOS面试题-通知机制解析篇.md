@@ -1,13 +1,14 @@
 ---
 title: 大厂常问iOS面试题--通知机制解析篇
-date: 2024-03-02 22:38:52
 tags:
-- iOS面试题
-- 通知机制解析
+  - iOS面试题
+  - 通知机制解析
 toc: true
 categories:
-- iOS 
-- iOS面试题
+  - iOS
+  - iOS面试题
+abbrlink: a5c69c69
+date: 2024-03-02 22:38:52
 ---
 
 # 简述

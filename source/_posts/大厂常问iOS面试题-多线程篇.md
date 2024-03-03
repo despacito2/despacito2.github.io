@@ -1,13 +1,14 @@
 ---
 title: 大厂常问iOS面试题--多线程篇
-date: 2024-03-01 14:51:50
 tags:
-- iOS面试题
-- 多线程
+  - iOS面试题
+  - 多线程
 toc: true
 categories:
-- iOS 
-- iOS面试题
+  - iOS
+  - iOS面试题
+abbrlink: b46135b
+date: 2024-03-01 14:51:50
 ---
 
 ## 1.进程与线程

@@ -1,13 +1,14 @@
 ---
 title: 大厂常问iOS面试题--Runtime篇
-date: 2024-03-01 13:57:16
 tags:
-- iOS面试题
-- Runtime
+  - iOS面试题
+  - Runtime
 toc: true
-categories: 
-- iOS 
-- iOS面试题
+categories:
+  - iOS
+  - iOS面试题
+abbrlink: 56ea4065
+date: 2024-03-01 13:57:16
 ---
 
 ## 1.什么是Runtime

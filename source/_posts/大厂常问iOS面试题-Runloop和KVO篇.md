@@ -1,13 +1,14 @@
 ---
 title: 大厂常问iOS面试题--Runloop&KVO篇
-date: 2024-03-02 22:26:19
 tags:
-- iOS面试题
-- Runloop&KVO
+  - iOS面试题
+  - Runloop&KVO
 toc: true
 categories:
-- iOS 
-- iOS面试题
+  - iOS
+  - iOS面试题
+abbrlink: 1e8a5be3
+date: 2024-03-02 22:26:19
 ---
 
 ### 前言

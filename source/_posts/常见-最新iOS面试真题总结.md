@@ -1,13 +1,14 @@
 ---
 title: 常见-最新iOS面试真题总结
-date: 2024-03-02 23:30:32
 tags:
-- iOS面试真题
-- 常见
+  - iOS面试真题
+  - 常见
 toc: true
 categories:
-- iOS 
-- iOS面试真题
+  - iOS
+  - iOS面试真题
+abbrlink: '22297147'
+date: 2024-03-02 23:30:32
 ---
 
 ### 前言

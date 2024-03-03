@@ -1,13 +1,14 @@
 ---
 title: 大厂常问iOS面试题--NSNotification篇
-date: 2024-03-02 22:08:39
 tags:
-- iOS面试题
-- NSNotification
+  - iOS面试题
+  - NSNotification
 toc: true
 categories:
-- iOS 
-- iOS面试题
+  - iOS
+  - iOS面试题
+abbrlink: 2bf627ae
+date: 2024-03-02 22:08:39
 ---
 
 ### 主要内容包含如下:

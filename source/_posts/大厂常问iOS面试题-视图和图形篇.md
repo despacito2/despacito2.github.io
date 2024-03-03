@@ -1,13 +1,14 @@
 ---
 title: 大厂常问iOS面试题--视图和图形篇
-date: 2024-03-02 22:55:35
 tags:
-- iOS面试题
-- 视图&图形
+  - iOS面试题
+  - 视图&图形
 toc: true
 categories:
-- iOS 
-- iOS面试题
+  - iOS
+  - iOS面试题
+abbrlink: ef543022
+date: 2024-03-02 22:55:35
 ---
 
 本篇我们来讲一下 【iOS面试题的视图&图形】相关的问题.

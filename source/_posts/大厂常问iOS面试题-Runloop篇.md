@@ -1,13 +1,14 @@
 ---
 title: 大厂常问iOS面试题--Runloop篇
-date: 2024-03-01 10:34:56
-tags: 
-- iOS面试题
-- Runloop
+tags:
+  - iOS面试题
+  - Runloop
 toc: true
-categories: 
-- iOS 
-- iOS面试题
+categories:
+  - iOS
+  - iOS面试题
+abbrlink: c985851c
+date: 2024-03-01 10:34:56
 ---
 
 ## 1.Runloop 和线程的关系？

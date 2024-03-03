@@ -1,13 +1,14 @@
 ---
 title: 字节跳动-最新iOS面试真题
-date: 2024-03-02 23:12:18
 tags:
-- iOS面试真题
-- 字节跳动
+  - iOS面试真题
+  - 字节跳动
 toc: true
 categories:
-- iOS 
-- iOS面试真题
+  - iOS
+  - iOS面试真题
+abbrlink: 5a0f7207
+date: 2024-03-02 23:12:18
 ---
 
 ### 字节一面内容：

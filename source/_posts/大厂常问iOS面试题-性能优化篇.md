@@ -1,13 +1,14 @@
 ---
 title: 大厂常问iOS面试题--性能优化篇
-date: 2024-03-01 16:21:53
 tags:
-- iOS面试题
-- 性能优化
+  - iOS面试题
+  - 性能优化
 toc: true
 categories:
-- iOS 
-- iOS面试题
+  - iOS
+  - iOS面试题
+abbrlink: 83f6a6a3
+date: 2024-03-01 16:21:53
 ---
 
 ## 1.造成tableView卡顿的原因有哪些？

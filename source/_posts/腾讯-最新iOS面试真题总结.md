@@ -1,13 +1,14 @@
 ---
 title: 腾讯-最新iOS面试真题总结
-date: 2024-03-02 23:25:41
 tags:
-- iOS面试真题
-- 腾讯
+  - iOS面试真题
+  - 腾讯
 toc: true
 categories:
-- iOS 
-- iOS面试真题
+  - iOS
+  - iOS面试真题
+abbrlink: ff34586f
+date: 2024-03-02 23:25:41
 ---
 
 **一面**

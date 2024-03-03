@@ -1,13 +1,14 @@
 ---
 title: 大厂常问iOS面试题--组件化篇
-date: 2024-03-01 16:58:36
 tags:
-- iOS面试题
-- 组件
+  - iOS面试题
+  - 组件
 toc: true
 categories:
-- iOS 
-- iOS面试题
+  - iOS
+  - iOS面试题
+abbrlink: 5851d297
+date: 2024-03-01 16:58:36
 ---
 
 ## 1.组件化有什么好处？
