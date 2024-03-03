@@ -6,7 +6,8 @@ author: 人间正道
 language: zh-CN
 timezone: ''
 url: https://despacito2.github.io/
-permalink: ':year/:month/:day/:title/'
+# permalink: ':year/:month/:day/:title/'
+permalink: ':title/'
 permalink_defaults: null
 pretty_urls:
   trailing_index: true
@@ -66,8 +67,3 @@ deploy:
 # 自动生成sitemap
 sitemap:
     path: sitemap.xml
-
-# permalink: archives/:abbrlink.html
-abbrlink:
-  alg: crc32  # 算法：crc16(default) and crc32
-  rep: hex    # 进制：dec(default) and hex
