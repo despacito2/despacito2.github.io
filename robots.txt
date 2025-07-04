@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://despacito2.github.io/sitemap.xml

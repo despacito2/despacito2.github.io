@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta name="google-site-verification" content="4xeRrGz75ndIdizFDms5sFLsaZXJ4UfzKvxLBsSZKS8"><meta name="robots" content="index, follow"><title>分类: iOS开发 - 人间正道</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="人间正道是沧桑"><meta name="msapplication-TileImage" content="images/faviconNew.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="人间正道是沧桑"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="一个记录编程笔记、技术工具和个人成长思考的博客。"><meta property="og:type" content="blog"><meta property="og:title" content="人间正道"><meta property="og:url" content="https://despacito2.github.io/"><meta property="og:site_name" content="人间正道"><meta property="og:description" content="一个记录编程笔记、技术工具和个人成长思考的博客。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://despacito2.github.io/img/og_image.png"><meta property="article:author" content="人间正道"><meta property="article:tag" content="编程"><meta property="article:tag" content="技术博客"><meta property="article:tag" content="工具推荐"><meta property="article:tag" content="人间正道"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://despacito2.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://despacito2.github.io/"},"headline":"人间正道","image":["https://despacito2.github.io/img/og_image.png"],"author":{"@type":"Person","name":"人间正道"},"publisher":{"@type":"Organization","name":"人间正道","logo":{"@type":"ImageObject","url":"https://despacito2.github.io/images/logo.png"}},"description":"一个记录编程笔记、技术工具和个人成长思考的博客。"}</script><link rel="icon" href="/images/faviconNew.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><script data-ad-client="ca-pub-4191566366727150" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/images/logo.png" alt="人间正道" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">文章</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/page">好文收录</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/despacito2"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">分类</a></li><li class="is-active"><a href="#" aria-current="page">iOS开发</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-01T06:51:50.000Z" title="2024/3/1 14:51:50">2024-03-01</time>发表</span><span class="level-item"><time dateTime="2025-07-04T12:04:56.930Z" title="2025/7/4 20:04:56">2025-07-04</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a><span> / </span><a class="link-muted" href="/categories/iOS%E5%BC%80%E5%8F%91/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span><span class="level-item">16 分钟读完 (大约2432个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%E5%A4%A7%E5%8E%82%E5%B8%B8%E9%97%AEiOS%E9%9D%A2%E8%AF%95%E9%A2%98-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%AF%87/">大厂常问iOS面试题--多线程篇</a></p><div class="content"><h2 id="1-进程与线程"><a href="#1-进程与线程" class="headerlink" title="1.进程与线程"></a>1.进程与线程</h2><ul>
+<li><p>进程：</p>
+<p>1.进程是一个具有一定独立功能的程序关于某次数据集合的一次运行活动，它是操作系统分配资源的基本单元.</p>
+<p>2.进程是指在系统中正在运行的一个应用程序，就是一段程序的执行过程,我们可以理解为手机上的一个app.</p>
+<p>3.每个进程之间是独立的，每个进程均运行在其专用且受保护的内存空间内，拥有独立运行所需的全部资源</p>
+</li>
+<li><p>线程</p>
+<p>1.程序执行流的最小单元，线程是进程中的一个实体.</p>
+<p>2.一个进程要想执行任务,必须至少有一条线程.应用程序启动的时候，系统会默认开启一条线程,也就是主线程</p>
+</li>
+<li><p>进程和线程的关系</p>
+<p>1.线程是进程的执行单元，进程的所有任务都在线程中执行</p>
+<p>2.线程是 CPU 分配资源和调度的最小单位</p>
+<p>3.一个程序可以对应多个进程(多进程),一个进程中可有多个线程,但至少要有一条线程</p>
+<p>4.同一个进程内的线程共享进程资源</p>
+</li>
+</ul>
+<h2 id="2-什么是多线程？"><a href="#2-什么是多线程？" class="headerlink" title="2.什么是多线程？"></a>2.什么是多线程？</h2><ul>
+<li><p>多线程的实现原理：事实上，同一时间内单核的CPU只能执行一个线程，多线程是CPU快速的在多个线程之间进行切换（调度），造成了多个线程同时执行的假象。</p>
+</li>
+<li><p>如果是多核CPU就真的可以同时处理多个线程了。</p>
+</li>
+<li><p>多线程的目的是为了同步完成多项任务，通过提高系统的资源利用率来提高系统的效率。</p>
+</li>
+</ul>
+<h2 id="3-多线程的优点和缺点"><a href="#3-多线程的优点和缺点" class="headerlink" title="3.多线程的优点和缺点"></a>3.多线程的优点和缺点</h2><ul>
+<li><p>优点:</p>
+<p>能适当提高程序的执行效率</p>
+<p>能适当提高资源利用率（CPU、内存利用率）</p>
+</li>
+<li><p>缺点:</p>
+<p>开启线程需要占用一定的内存空间（默认情况下，主线程占用1M，子线程占用512KB），如果开启大量的线程，会占用大量的内存空间，降低程序的性能</p>
+<p>线程越多，CPU在调度线程上的开销就越大</p>
+<p>程序设计更加复杂：比如线程之间的通信、多线程的数据共享</p>
+</li>
+</ul>
+<h2 id="4-多线程的-并行-和-并发-有什么区别？"><a href="#4-多线程的-并行-和-并发-有什么区别？" class="headerlink" title="4.多线程的 并行 和 并发 有什么区别？"></a>4.多线程的 并行 和 并发 有什么区别？</h2><ul>
+<li><p>并行：充分利用计算机的多核，在多个线程上同步进行</p>
+</li>
+<li><p>并发：在一条线程上通过快速切换，让人感觉在同步进行</p>
+</li>
+</ul>
+<h2 id="5-iOS中实现多线程的几种方案，各自有什么特点？"><a href="#5-iOS中实现多线程的几种方案，各自有什么特点？" class="headerlink" title="5.iOS中实现多线程的几种方案，各自有什么特点？"></a>5.iOS中实现多线程的几种方案，各自有什么特点？</h2><ul>
+<li><p>NSThread 面向对象的，需要程序员手动创建线程，但不需要手动销毁。子线程间通信很难。</p>
+</li>
+<li><p>GCD c语言，充分利用了设备的多核，自动管理线程生命周期。比NSOperation效率更高。</p>
+</li>
+<li><p>NSOperation 基于gcd封装，更加面向对象，比gcd多了一些功能。</p>
+</li>
+</ul>
+<h2 id="6-多个网络请求完成后执行下一步"><a href="#6-多个网络请求完成后执行下一步" class="headerlink" title="6.多个网络请求完成后执行下一步"></a>6.多个网络请求完成后执行下一步</h2><ul>
+<li><p>使用GCD的dispatch_group_t</p>
+<p>创建一个dispatch_group_t</p>
+<p>每次网络请求前先dispatch_group_enter,请求回调后再dispatch_group_leave，enter和leave必须配合使用，有几次enter就要有几次leave，否则group会一直存在。</p>
+<p>当所有enter的block都leave后，会执行dispatch_group_notify的block。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">NSString *str = @&quot;http://xxxx.com/&quot;;</span><br><span class="line">NSURL *url = [NSURL URLWithString:str];</span><br><span class="line">NSURLRequest *request = [NSURLRequest requestWithURL:url];</span><br><span class="line">NSURLSession *session = [NSURLSession sharedSession];</span><br><span class="line"></span><br><span class="line">dispatch_group_t downloadGroup = dispatch_group_create();</span><br><span class="line">for (int i=0; i&lt;10; i++) &#123;</span><br><span class="line">    dispatch_group_enter(downloadGroup);</span><br><span class="line"></span><br><span class="line">    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</span><br><span class="line">        NSLog(@&quot;%d---%d&quot;,i,i);</span><br><span class="line">        dispatch_group_leave(downloadGroup);</span><br><span class="line">    &#125;];</span><br><span class="line">    [task resume];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dispatch_group_notify(downloadGroup, dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    NSLog(@&quot;end&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用GCD的信号量dispatch_semaphore_t</p>
+<p>dispatch_semaphore信号量为基于计数器的一种多线程同步机制。如果semaphore计数大于等于1，计数-1，返回，程序继续运行。如果计数为0，则等待。dispatch_semaphore_signal(semaphore)为计数+1操作,dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER)为设置等待时间，这里设置的等待时间是一直等待。</p>
+<p>创建semaphore为0，等待，等10个网络请求都完成了，dispatch_semaphore_signal(semaphore)为计数+1，然后计数-1返回</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">NSString *str = @&quot;http://xxxx.com/&quot;;</span><br><span class="line">NSURL *url = [NSURL URLWithString:str];</span><br><span class="line">NSURLRequest *request = [NSURLRequest requestWithURL:url];</span><br><span class="line">NSURLSession *session = [NSURLSession sharedSession];</span><br><span class="line"></span><br><span class="line">dispatch_semaphore_t sem = dispatch_semaphore_create(0);</span><br><span class="line">for (int i=0; i&lt;10; i++) &#123;</span><br><span class="line"></span><br><span class="line">    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</span><br><span class="line">        NSLog(@&quot;%d---%d&quot;,i,i);</span><br><span class="line">        count++;</span><br><span class="line">        if (count==10) &#123;</span><br><span class="line">            dispatch_semaphore_signal(sem);</span><br><span class="line">            count = 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">    [task resume];</span><br><span class="line">&#125;</span><br><span class="line">dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);</span><br><span class="line"></span><br><span class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    NSLog(@&quot;end&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="7-多个网络请求顺序执行后执行下一步"><a href="#7-多个网络请求顺序执行后执行下一步" class="headerlink" title="7.多个网络请求顺序执行后执行下一步"></a>7.多个网络请求顺序执行后执行下一步</h2><ul>
+<li><p>使用信号量semaphore</p>
+<p>每一次遍历，都让其dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER)，这个时候线程会等待，阻塞当前线程，直到dispatch_semaphore_signal(sem)调用之后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">NSString *str = @&quot;http://www.jianshu.com/p/6930f335adba&quot;;</span><br><span class="line">NSURL *url = [NSURL URLWithString:str];</span><br><span class="line">NSURLRequest *request = [NSURLRequest requestWithURL:url];</span><br><span class="line">NSURLSession *session = [NSURLSession sharedSession];</span><br><span class="line"></span><br><span class="line">dispatch_semaphore_t sem = dispatch_semaphore_create(0);</span><br><span class="line">for (int i=0; i&lt;10; i++) &#123;</span><br><span class="line"></span><br><span class="line">    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</span><br><span class="line"></span><br><span class="line">        NSLog(@&quot;%d---%d&quot;,i,i);</span><br><span class="line">        dispatch_semaphore_signal(sem);</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    [task resume];</span><br><span class="line">    dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    NSLog(@&quot;end&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="8-异步操作两组数据时-执行完第一组之后-才能执行第二组"><a href="#8-异步操作两组数据时-执行完第一组之后-才能执行第二组" class="headerlink" title="8.异步操作两组数据时, 执行完第一组之后, 才能执行第二组"></a>8.异步操作两组数据时, 执行完第一组之后, 才能执行第二组</h2><ul>
+<li><p>这里使用dispatch_barrier_async栅栏方法即可实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;test&quot;, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line"></span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">    NSLog(@&quot;第一次任务的主线程为: %@&quot;, [NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">    NSLog(@&quot;第二次任务的主线程为: %@&quot;, [NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">dispatch_barrier_async(queue, ^&#123;</span><br><span class="line">    NSLog(@&quot;第一次任务, 第二次任务执行完毕, 继续执行&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">    NSLog(@&quot;第三次任务的主线程为: %@&quot;, [NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">    NSLog(@&quot;第四次任务的主线程为: %@&quot;, [NSThread currentThread]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="9-多线程中的死锁？"><a href="#9-多线程中的死锁？" class="headerlink" title="9.多线程中的死锁？"></a>9.多线程中的死锁？</h2><p>死锁是由于多个线程（进程）在执行过程中，因为争夺资源而造成的互相等待现象，你可以理解为卡主了。产生死锁的必要条件有四个：</p>
+<ul>
+<li><p>互斥条件 ： 指进程对所分配到的资源进行排它性使用，即在一段时间内某资源只由一个进程占用。如果此时还有其它进程请求资源，则请求者只能等待，直至占有资源的进程用毕释放。</p>
+</li>
+<li><p>请求和保持条件 ： 指进程已经保持至少一个资源，但又提出了新的资源请求，而该资源已被其它进程占有，此时请求进程阻塞，但又对自己已获得的其它资源保持不放。</p>
+</li>
+<li><p>不可剥夺条件 ： 指进程已获得的资源，在未使用完之前，不能被剥夺，只能在使用完时由自己释放。</p>
+</li>
+<li><p>环路等待条件 ： 指在发生死锁时，必然存在一个进程——资源的环形链，即进程集合{P0，P1，P2，···，Pn}中的P0正在等待一个P1占用的资源；P1正在等待P2占用的资源，……，Pn正在等待已被P0占用的资源。</p>
+<p>最常见的就是 同步函数 + 主队列 的组合，本质是队列阻塞。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dispatch_sync(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    NSLog(@&quot;2&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;1&quot;);</span><br><span class="line">// 什么也不会打印，直接报错</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="10-GCD执行原理？"><a href="#10-GCD执行原理？" class="headerlink" title="10.GCD执行原理？"></a>10.GCD执行原理？</h2><p><a target="_blank" rel="noopener" href="https://github.com/LGBamboo/iOS-article.02/blob/main/%E5%A4%A7%E5%8E%82%E5%B8%B8%E9%97%AEiOS%E9%9D%A2%E8%AF%95%E9%A2%98--%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%AF%87.md#10gcd%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86"></a></p>
+<ul>
+<li><p>GCD有一个底层线程池，这个池中存放的是一个个的线程。之所以称为“池”，很容易理解出这个“池”中的线程是可以重用的，当一段时间后这个线程没有被调用胡话，这个线程就会被销毁。注意：开多少条线程是由底层线程池决定的（线程建议控制再3~5条），池是系统自动来维护，不需要我们程序员来维护（看到这句话是不是很开心？） 而我们程序员需要关心的是什么呢？我们只关心的是向队列中添加任务，队列调度即可。</p>
+</li>
+<li><p>如果队列中存放的是同步任务，则任务出队后，底层线程池中会提供一条线程供这个任务执行，任务执行完毕后这条线程再回到线程池。这样队列中的任务反复调度，因为是同步的，所以当我们用currentThread打印的时候，就是同一条线程。</p>
+</li>
+<li><p>如果队列中存放的是异步的任务，（注意异步可以开线程），当任务出队后，底层线程池会提供一个线程供任务执行，因为是异步执行，队列中的任务不需等待当前任务执行完毕就可以调度下一个任务，这时底层线程池中会再次提供一个线程供第二个任务执行，执行完毕后再回到底层线程池中。</p>
+</li>
+<li><p>这样就对线程完成一个复用，而不需要每一个任务执行都开启新的线程，也就从而节约的系统的开销，提高了效率。在iOS7.0的时候，使用GCD系统通常只能开5–8条线程，iOS8.0以后，系统可以开启很多条线程，但是实在开发应用中，建议开启线程条数：3–5条最为合理。</p>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-01T06:03:56.000Z" title="2024/3/1 14:03:56">2024-03-01</time>发表</span><span class="level-item"><time dateTime="2025-07-04T12:04:56.930Z" title="2025/7/4 20:04:56">2025-07-04</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a><span> / </span><a class="link-muted" href="/categories/iOS%E5%BC%80%E5%8F%91/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span><span class="level-item">25 分钟读完 (大约3758个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%E5%A4%A7%E5%8E%82%E5%B8%B8%E9%97%AEiOS%E9%9D%A2%E8%AF%95%E9%A2%98-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E7%AF%87/">大厂常问iOS面试题--内存管理篇</a></p><div class="content"><h2 id="1-什么情况使用weak关键字，相比assign有什么不同？"><a href="#1-什么情况使用weak关键字，相比assign有什么不同？" class="headerlink" title="1.什么情况使用weak关键字，相比assign有什么不同？"></a>1.什么情况使用weak关键字，相比assign有什么不同？</h2><ul>
+<li><p>什么情况使用 weak 关键字？</p>
+<p>在 ARC 中,在有可能出现循环引用的时候,往往要通过让其中一端使用 weak 来解决,比如: delegate 代理属性</p>
+<p>自身已经对它进行一次强引用,没有必要再强引用一次,此时也会使用 weak,自定义 IBOutlet 控件属性一般也使用 weak；当然，也可以使用strong。在下文也有论述：《IBOutlet连出来的视图属性为什么可以被设置成weak?》</p>
+</li>
+<li><p>不同点：</p>
+<p>weak 此特质表明该属性定义了一种“非拥有关系” (nonowning relationship)。为这种属性设置新值时，设置方法既不保留新值，也不释放旧值。此特质同assign类似， 然而在属性所指的对象遭到摧毁时，属性值也会清空(nil out)。 而 assign 的“设置方法”只会执行针对“纯量类型” (scalar type，例如 CGFloat 或 NSlnteger 等)的简单赋值操作。</p>
+<p>assign 可以用非 OC 对象,而 weak 必须用于 OC 对象</p>
+</li>
+</ul>
+<h2 id="2-如何让自己的类用copy修饰符？如何重写带copy关键字的setter？"><a href="#2-如何让自己的类用copy修饰符？如何重写带copy关键字的setter？" class="headerlink" title="2.如何让自己的类用copy修饰符？如何重写带copy关键字的setter？"></a>2.如何让自己的类用copy修饰符？如何重写带copy关键字的setter？</h2><ul>
+<li><p>若想令自己所写的对象具有拷贝功能，则需实现 NSCopying 协议。如果自定义的对象分为可变版本与不可变版本，那么就要同时实现 NSCopying 与 NSMutableCopying 协议。</p>
+<p>具体步骤：</p>
+<p>需声明该类遵从 NSCopying 协议</p>
+<p>实现 NSCopying 协议。该协议只有一个方法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (id)copyWithZone:(NSZone *)zone;</span><br></pre></td></tr></table></figure>
+
+<p>注意：一提到让自己的类用 copy 修饰符，我们总是想覆写copy方法，其实真正需要实现的却是 “copyWithZone” 方法。</p>
+</li>
+<li><p>重写带 copy 关键字的 setter，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)setName:(NSString *)name &#123;</span><br><span class="line">    //[_name release];</span><br><span class="line">    _name = [name copy];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3-深拷贝与浅拷贝"><a href="#3-深拷贝与浅拷贝" class="headerlink" title="3.深拷贝与浅拷贝"></a>3.深拷贝与浅拷贝</h2><p>浅拷贝只是对指针的拷贝，拷贝后两个指针指向同一个内存空间，深拷贝不但对指针进行拷贝，而且对指针指向的内容进行拷贝，经深拷贝后的指针是指向两个不同地址的指针。</p>
+<p>当对象中存在指针成员时，除了在复制对象时需要考虑自定义拷贝构造函数，还应该考虑以下两种情形：</p>
+<ul>
+<li><p>当函数的参数为对象时，实参传递给形参的实际上是实参的一个拷贝对象，系统自动通过拷贝构造函数实现；</p>
+</li>
+<li><p>当函数的返回值为一个对象时，该对象实际上是函数内对象的一个拷贝，用于返回函数调用处。</p>
+</li>
+</ul>
+<p>copy方法:如果是非可扩展类对象，则是浅拷贝。如果是可扩展类对象，则是深拷贝。</p>
+<p>mutableCopy方法:无论是可扩展类对象还是不可扩展类对象，都是深拷贝。</p>
+<h2 id="4-property的本质是什么？ivar、getter、setter是如何生成并添加到这个类中的"><a href="#4-property的本质是什么？ivar、getter、setter是如何生成并添加到这个类中的" class="headerlink" title="4.@property的本质是什么？ivar、getter、setter是如何生成并添加到这个类中的"></a>4.@property的本质是什么？ivar、getter、setter是如何生成并添加到这个类中的</h2><ul>
+<li><p>@property 的本质是实例变量（ivar）+存取方法（access method ＝ getter + setter）,即 @property &#x3D; ivar + getter + setter;</p>
+<p>“属性” (property)作为 Objective-C 的一项特性，主要的作用就在于封装对象中的数据。 Objective-C 对象通常会把其所需要的数据保存为各种实例变量。实例变量一般通过“存取方法”(access method)来访问。其中，“获取方法” (getter)用于读取变量值，而“设置方法” (setter)用于写入变量值。</p>
+</li>
+<li><p>ivar、getter、setter 是自动合成这个类中的</p>
+<p>完成属性定义后，编译器会自动编写访问这些属性所需的方法，此过程叫做“自动合成”(autosynthesis)。需要强调的是，这个过程由编译 器在编译期执行，所以编辑器里看不到这些“合成方法”(synthesized method)的源代码。除了生成方法代码 getter、setter 之外，编译器还要自动向类中添加适当类型的实例变量，并且在属性名前面加下划线，以此作为实例变量的名字。在前例中，会生成两个实例变量，其名称分别为 _firstName 与 _lastName。也可以在类的实现代码里通过 @synthesize 语法来指定实例变量的名字.</p>
+</li>
+</ul>
+<h2 id="5-protocol和category中如何使用-property"><a href="#5-protocol和category中如何使用-property" class="headerlink" title="5.@protocol和category中如何使用@property"></a>5.@protocol和category中如何使用@property</h2><ul>
+<li><p>在 protocol 中使用 property 只会生成 setter 和 getter 方法声明,我们使用属性的目的,是希望遵守我协议的对象能实现该属性</p>
+</li>
+<li><p>category 使用 @property 也是只会生成 setter 和 getter 方法的声明,如果我们真的需要给 category 增加属性的实现,需要借助于运行时的两个函数：<code>objc_setAssociatedObject</code>和<code>objc_getAssociatedObject</code></p>
+</li>
+</ul>
+<h2 id="6-简要说一下-autoreleasePool的数据结构？？"><a href="#6-简要说一下-autoreleasePool的数据结构？？" class="headerlink" title="6.简要说一下@autoreleasePool的数据结构？？"></a>6.简要说一下@autoreleasePool的数据结构？？</h2><p>简单说是双向链表，每张链表头尾相接，有 parent、child指针</p>
+<p>每创建一个池子，会在首部创建一个 哨兵 对象,作为标记</p>
+<p>最外层池子的顶端会有一个next指针。当链表容量满了，就会在链表的顶端，并指向下一张表。</p>
+<h2 id="7-BAD-ACCESS在什么情况下出现？"><a href="#7-BAD-ACCESS在什么情况下出现？" class="headerlink" title="7.BAD_ACCESS在什么情况下出现？"></a>7.BAD_ACCESS在什么情况下出现？</h2><p>访问了悬垂指针，比如对一个已经释放的对象执行了release、访问已经释放对象的成员变量或者发消息。 死循环</p>
+<h2 id="8-使用CADisplayLink、NSTimer有什么注意点？"><a href="#8-使用CADisplayLink、NSTimer有什么注意点？" class="headerlink" title="8.使用CADisplayLink、NSTimer有什么注意点？"></a>8.使用CADisplayLink、NSTimer有什么注意点？</h2><p>CADisplayLink、NSTimer会造成循环引用，可以使用YYWeakProxy或者为CADisplayLink、NSTimer添加block方法解决循环引用</p>
+<h2 id="9-iOS内存分区情况"><a href="#9-iOS内存分区情况" class="headerlink" title="9.iOS内存分区情况"></a>9.iOS内存分区情况</h2><ul>
+<li><p>栈区（Stack）</p>
+<p>由编译器自动分配释放，存放函数的参数，局部变量的值等</p>
+<p>栈是向低地址扩展的数据结构，是一块连续的内存区域</p>
+</li>
+<li><p>堆区（Heap）</p>
+<p>由程序员分配释放</p>
+<p>是向高地址扩展的数据结构，是不连续的内存区域</p>
+</li>
+<li><p>全局区</p>
+<p>全局变量和静态变量的存储是放在一块的，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和未初始化的静态变量在相邻的另一块区域</p>
+<p>程序结束后由系统释放</p>
+</li>
+<li><p>常量区</p>
+<p>常量字符串就是放在这里的</p>
+<p>程序结束后由系统释放</p>
+</li>
+<li><p>代码区</p>
+<p>存放函数体的二进制代码</p>
+</li>
+<li><p>注：</p>
+<ul>
+<li><p>在 iOS 中，堆区的内存是应用程序共享的，堆中的内存分配是系统负责的</p>
+</li>
+<li><p>系统使用一个链表来维护所有已经分配的内存空间（系统仅仅记录，并不管理具体的内容）</p>
+</li>
+<li><p>变量使用结束后，需要释放内存，OC 中是判断引用计数是否为 0，如果是就说明没有任何变量使用该空间，那么系统将其回收</p>
+</li>
+<li><p>当一个 app 启动后，代码区、常量区、全局区大小就已经固定，因此指向这些区的指针不会产生崩溃性的错误。而堆区和栈区是时时刻刻变化的（堆的创建销毁，栈的弹入弹出），所以当使用一个指针指向这个区里面的内存时，一定要注意内存是否已经被释放，否则会产生程序崩溃（也即是野指针报错）</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-iOS内存管理方式"><a href="#10-iOS内存管理方式" class="headerlink" title="10.iOS内存管理方式"></a>10.iOS内存管理方式</h2><ul>
+<li><p>Tagged Pointer（小对象）</p>
+<p>Tagged Pointer 专门用来存储小的对象，例如 NSNumber 和 NSDate</p>
+<p>Tagged Pointer 指针的值不再是地址了，而是真正的值。所以，实际上它不再是一个对象了，它只是一个披着对象皮的普通变量而已。所以，它的内存并不存储在堆中，也不需要 malloc 和 free</p>
+<p>在内存读取上有着 3 倍的效率，创建时比以前快 106 倍</p>
+<p>objc_msgSend 能识别 Tagged Pointer，比如 NSNumber 的 intValue 方法，直接从指针提取数据</p>
+<p>使用 Tagged Pointer 后，指针内存储的数据变成了 Tag + Data，也就是将数据直接存储在了指针中</p>
+</li>
+<li><p>NONPOINTER_ISA （指针中存放与该对象内存相关的信息） 苹果将 isa 设计成了联合体，在 isa 中存储了与该对象相关的一些内存的信息，原因也如上面所说，并不需要 64 个二进制位全部都用来存储指针。</p>
+<p>isa 的结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// x86_64 架构</span><br><span class="line">struct &#123;</span><br><span class="line">    uintptr_t nonpointer        : 1;  // 0:普通指针，1:优化过，使用位域存储更多信息</span><br><span class="line">    uintptr_t has_assoc         : 1;  // 对象是否含有或曾经含有关联引用</span><br><span class="line">    uintptr_t has_cxx_dtor      : 1;  // 表示是否有C++析构函数或OC的dealloc</span><br><span class="line">    uintptr_t shiftcls          : 44; // 存放着 Class、Meta-Class 对象的内存地址信息</span><br><span class="line">    uintptr_t magic             : 6;  // 用于在调试时分辨对象是否未完成初始化</span><br><span class="line">    uintptr_t weakly_referenced : 1;  // 是否被弱引用指向</span><br><span class="line">    uintptr_t deallocating      : 1;  // 对象是否正在释放</span><br><span class="line">    uintptr_t has_sidetable_rc  : 1;  // 是否需要使用 sidetable 来存储引用计数</span><br><span class="line">    uintptr_t extra_rc          : 8;  // 引用计数能够用 8 个二进制位存储时，直接存储在这里</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// arm64 架构</span><br><span class="line">struct &#123;</span><br><span class="line">    uintptr_t nonpointer        : 1;  // 0:普通指针，1:优化过，使用位域存储更多信息</span><br><span class="line">    uintptr_t has_assoc         : 1;  // 对象是否含有或曾经含有关联引用</span><br><span class="line">    uintptr_t has_cxx_dtor      : 1;  // 表示是否有C++析构函数或OC的dealloc</span><br><span class="line">    uintptr_t shiftcls          : 33; // 存放着 Class、Meta-Class 对象的内存地址信息</span><br><span class="line">    uintptr_t magic             : 6;  // 用于在调试时分辨对象是否未完成初始化</span><br><span class="line">    uintptr_t weakly_referenced : 1;  // 是否被弱引用指向</span><br><span class="line">    uintptr_t deallocating      : 1;  // 对象是否正在释放</span><br><span class="line">    uintptr_t has_sidetable_rc  : 1;  // 是否需要使用 sidetable 来存储引用计数</span><br><span class="line">    uintptr_t extra_rc          : 19;  // 引用计数能够用 19 个二进制位存储时，直接存储在这里</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这里的 has_sidetable_rc 和 extra_rc，has_sidetable_rc 表明该指针是否引用了 sidetable 散列表，之所以有这个选项，是因为少量的引用计数是不会直接存放在 SideTables 表中的，对象的引用计数会先存放在 extra_rc 中，当其被存满时，才会存入相应的 SideTables 散列表中，SideTables 中有很多张 SideTable，每个 SideTable 也都是一个散列表，而引用计数表就包含在 SideTable 之中。</p>
+</li>
+<li><p>散列表（引用计数表、弱引用表）</p>
+<p>引用计数要么存放在 isa 的 extra_rc 中，要么存放在引用计数表中，而引用计数表包含在一个叫 SideTable 的结构中，它是一个散列表，也就是哈希表。而 SideTable 又包含在一个全局的 StripeMap 的哈希映射表中，这个表的名字叫 SideTables。</p>
+<p>当一个对象访问 SideTables 时：</p>
+<ul>
+<li><p>首先会取得对象的地址，将地址进行哈希运算，与 SideTables 中 SideTable 的个数取余，最后得到的结果就是该对象所要访问的 SideTable</p>
+</li>
+<li><p>在取得的 SideTable 中的 RefcountMap 表中再进行一次哈希查找，找到该对象在引用计数表中对应的位置</p>
+</li>
+<li><p>如果该位置存在对应的引用计数，则对其进行操作，如果没有对应的引用计数，则创建一个对应的 size_t 对象，其实就是一个 uint 类型的无符号整型</p>
+</li>
+</ul>
+<p>弱引用表也是一张哈希表的结构，其内部包含了每个对象对应的弱引用表 weak_entry_t，而 weak_entry_t 是一个结构体数组，其中包含的则是每一个对象弱引用的对象所对应的弱引用指针。</p>
+</li>
+</ul>
+<h2 id="11-循环引用"><a href="#11-循环引用" class="headerlink" title="11.循环引用"></a>11.循环引用</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h3><p>iOS内存中的分区有：堆、栈、静态区。其中，栈和静态区是操作系统自己管理回收，不会造成循环引用。在堆中的相互引用无法回收，有可能造成循环引用。</p>
+<blockquote>
+<p>循环引用的实质：多个对象相互之间有强引用，不能施放让系统回收。</p>
+</blockquote>
+<blockquote>
+<p>解决循环引用一般是将 strong 引用改为 weak 引用。</p>
+</blockquote>
+<h3 id="2-循环引用场景分析及解决方法"><a href="#2-循环引用场景分析及解决方法" class="headerlink" title="2. 循环引用场景分析及解决方法"></a>2. 循环引用场景分析及解决方法</h3><h4 id="1）父类与子类"><a href="#1）父类与子类" class="headerlink" title="1）父类与子类"></a>1）父类与子类</h4><blockquote>
+<p>如：在使用UITableView 的时候，将 UITableView 给 Cell 使用，cell 中的 strong 引用会造成循环引用。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// controller</span><br><span class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath &#123;</span><br><span class="line">    TestTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@&quot;UITableViewCellId&quot; forIndexPath:indexPath];</span><br><span class="line">    cell.tableView = tableView;</span><br><span class="line">    return cell;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// cell</span><br><span class="line">@interface TestTableViewCell : UITableViewCell</span><br><span class="line">@property (nonatomic, strong) UITableView *tableView; // strong 造成循环引用</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解决：strong 改为 weak</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// cell</span><br><span class="line">@interface TestTableViewCell : UITableViewCell</span><br><span class="line">@property (nonatomic, weak) UITableView *tableView; // strong 改为 weak</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+
+<h4 id="2）block"><a href="#2）block" class="headerlink" title="2）block"></a>2）block</h4><blockquote>
+<p>block在copy时都会对block内部用到的对象进行强引用的。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">self.testObject.testCircleBlock = ^&#123;</span><br><span class="line">   [self doSomething];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>self将block作为自己的属性变量，而在block的方法体里面又引用了 self 本身，此时就很简单的形成了一个循环引用。</p>
+<p>应该将 self 改为弱引用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__weak typeof(self) weakSelf = self;</span><br><span class="line"> self.testObject.testCircleBlock = ^&#123;</span><br><span class="line">      __strong typeof (weakSelf) strongSelf = weakSelf;</span><br><span class="line">      [strongSelf doSomething];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在 ARC 中，在被拷贝的 block 中无论是直接引用 self 还是通过引用 self 的成员变量间接引用 self，该 block 都会 retain self。</p>
+</blockquote>
+<ul>
+<li><strong>快速定义宏</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// weak obj</span><br><span class="line">/#define WEAK_OBJ(type)  __weak typeof(type) weak##type = type;</span><br><span class="line"></span><br><span class="line">// strong obj</span><br><span class="line">/#define STRONG_OBJ(type)  __strong typeof(type) str##type = weak##type;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3）Delegate"><a href="#3）Delegate" class="headerlink" title="3）Delegate"></a>3）Delegate</h4><p>delegate 属性的声明如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@property (nonatomic, weak) id &lt;TestDelegate&gt; delegate;</span><br></pre></td></tr></table></figure>
+
+<p>如果将 weak 改为 strong，则会造成循环引用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// self -&gt; AViewController</span><br><span class="line">BViewController *bVc = [BViewController new];</span><br><span class="line">bVc = self; </span><br><span class="line">[self.navigationController pushViewController: bVc animated:YES];</span><br><span class="line"></span><br><span class="line">   // 假如是 strong 的情况</span><br><span class="line">   // bVc.delegate ===&gt; AViewController (也就是 A 的引用计数 + 1)</span><br><span class="line">   // AViewController 本身又是引用了 &lt;BViewControllerDelegate&gt; ===&gt; delegate 引用计数 + 1</span><br><span class="line">   // 导致： AViewController &lt;======&gt; Delegate ，也就循环引用啦</span><br></pre></td></tr></table></figure>
+
+<h4 id="4）NSTimer"><a href="#4）NSTimer" class="headerlink" title="4）NSTimer"></a>4）NSTimer</h4><p>NSTimer 的 target 对传入的参数都是强引用（即使是 weak 对象）</p>
+<p><a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/92e7f3dcc1b59190e97ad6a18db9f33717baee7edaf694149baa398b3238efb6/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f31373439353331372d323132323934626231623465303064652e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430"><img src="/images/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.jpg"></a></p>
+<p>解决办法: 《Effective Objective-C 》中的52条方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface NSTimer (YPQBlocksSupport)</span><br><span class="line"></span><br><span class="line">+ (NSTimer *)ypq_scheduledTimeWithTimeInterval:(NSTimeInterval)interval</span><br><span class="line">                                         block:(void(^)())block</span><br><span class="line">                                       repeats:(BOOL)repeats;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">#import &quot;NSTimer+YPQBlocksSupport.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation NSTimer (YPQBlocksSupport)</span><br><span class="line"></span><br><span class="line">+ (NSTimer *)ypq_scheduledTimeWithTimeInterval:(NSTimeInterval)interval</span><br><span class="line">                                         block:(void(^)())block</span><br><span class="line">                                       repeats:(BOOL)repeats</span><br><span class="line">&#123;</span><br><span class="line">    return [self scheduledTimerWithTimeInterval:interval</span><br><span class="line">                                         target:self</span><br><span class="line">                                       selector:@selector(ypq_blockInvoke:) userInfo:[block copy]</span><br><span class="line">                                        repeats:repeats];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)ypq_blockInvoke:(NSTimer *)timer</span><br><span class="line">&#123;</span><br><span class="line">    void (^block)() = timer.userInfo;</span><br><span class="line">    if(block)</span><br><span class="line">    &#123;</span><br><span class="line">        block();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+
+<p>使用方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">__weak ViewController * weakSelf = self;</span><br><span class="line">[NSTimer ypq_scheduledTimeWithTimeInterval:4.0f</span><br><span class="line">                                     block:^&#123;</span><br><span class="line">                                         ViewController * strongSelf = weakSelf;</span><br><span class="line">                                         [strongSelf afterThreeSecondBeginAction];</span><br><span class="line">                                     &#125;</span><br><span class="line">                                   repeats:YES];</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>计时器保留其目标对象，反复执行任务导致的循环，确实要注意，另外在dealloc的时候，不要忘了调用计时器中的 invalidate方法。</p>
+</blockquote>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-01T05:57:16.000Z" title="2024/3/1 13:57:16">2024-03-01</time>发表</span><span class="level-item"><time dateTime="2025-07-04T12:04:56.930Z" title="2025/7/4 20:04:56">2025-07-04</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a><span> / </span><a class="link-muted" href="/categories/iOS%E5%BC%80%E5%8F%91/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span><span class="level-item">18 分钟读完 (大约2664个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%E5%A4%A7%E5%8E%82%E5%B8%B8%E9%97%AEiOS%E9%9D%A2%E8%AF%95%E9%A2%98-Runtime%E7%AF%87/">大厂常问iOS面试题--Runtime篇</a></p><div class="content"><h2 id="1-什么是Runtime"><a href="#1-什么是Runtime" class="headerlink" title="1.什么是Runtime"></a>1.什么是Runtime</h2><p>在 Objective-C 中，Runtime 是一套 C 语言的 API，用于在运行时操作对象、类和元类。通过 Objective-C Runtime，开发者可以在程序运行时动态地创建类、修改类的方法、获取类的属性信息、发送消息等。这使得 Objective-C 具有了诸多动态语言的特性，如动态绑定、消息转发、方法调用等。</p>
+<h2 id="2-Category-的实现原理？"><a href="#2-Category-的实现原理？" class="headerlink" title="2.Category 的实现原理？"></a>2.Category 的实现原理？</h2><ul>
+<li><p>Category 实际上是 Category_t的结构体，在运行时，新添加的方法，都被以倒序插入到原有方法列表的最前面，所以不同的Category，添加了同一个方法，执行的实际上是最后一个。</p>
+</li>
+<li><p>Category 在刚刚编译完的时候，和原来的类是分开的，只有在程序运行起来后，通过 Runtime ，Category 和原来的类才会合并到一起。</p>
+</li>
+</ul>
+<h2 id="3-isa指针的理解，对象的isa指针指向哪里？isa指针有哪两种类型？"><a href="#3-isa指针的理解，对象的isa指针指向哪里？isa指针有哪两种类型？" class="headerlink" title="3.isa指针的理解，对象的isa指针指向哪里？isa指针有哪两种类型？"></a>3.isa指针的理解，对象的isa指针指向哪里？isa指针有哪两种类型？</h2><ul>
+<li><p>isa 等价于 is kind of</p>
+<p>实例对象的 isa 指向类对象</p>
+<p>类对象的 isa 指向元类对象</p>
+<p>元类对象的 isa 指向元类的基类</p>
+</li>
+<li><p>isa 有两种类型</p>
+<p>纯指针，指向内存地址</p>
+<p><code>NON_POINTER_ISA</code>，除了内存地址，还存有一些其他信息</p>
+</li>
+</ul>
+<h2 id="4-Objective-C-如何实现多重继承？"><a href="#4-Objective-C-如何实现多重继承？" class="headerlink" title="4.Objective-C 如何实现多重继承？"></a>4.Objective-C 如何实现多重继承？</h2><p>Object-c的类没有多继承,只支持单继承,如果要实现多继承的话，可使用如下几种方式间接实现</p>
+<ul>
+<li><p>通过组合实现</p>
+<p>A和B组合，作为C类的组件</p>
+</li>
+<li><p>通过协议实现</p>
+<p>C类实现A和B类的协议方法</p>
+</li>
+<li><p>消息转发实现</p>
+<p><code>forwardInvocation:</code>方法</p>
+</li>
+</ul>
+<h2 id="5-runtime-如何实现-weak-属性？"><a href="#5-runtime-如何实现-weak-属性？" class="headerlink" title="5.runtime 如何实现 weak 属性？"></a>5.runtime 如何实现 weak 属性？</h2><p>weak 此特质表明该属性定义了一种「非拥有关系」(nonowning relationship)。为这种属性设置新值时，设置方法既不持有新值（新指向的对象），也不释放旧值（原来指向的对象）。</p>
+<p>runtime 对注册的类，会进行内存布局，从一个粗粒度的概念上来讲，这时候会有一个 hash 表，这是一个全局表，表中是用 weak 指向的对象内存地址作为 key，用所有指向该对象的 weak 指针表作为 value。当此对象的引用计数为 0 的时候会 dealloc，假如该对象内存地址是 a，那么就会以 a 为 key，在这个 weak 表中搜索，找到所有以 a 为键的 weak 对象，从而设置为 nil。</p>
+<p>runtime 如何实现 weak 属性具体流程大致分为 3 步：</p>
+<ul>
+<li><p><strong>1、初始化时</strong>：runtime 会调用 objc_initWeak 函数，初始化一个新的 weak 指针指向对象的地址。</p>
+</li>
+<li><p><strong>2、添加引用时</strong>：<code>objc_initWeak</code> 函数会调用 <code>objc_storeWeak()</code> 函数，<code>objc_storeWeak()</code> 的作用是更新指针指向（指针可能原来指向着其他对象，这时候需要将该 weak 指针与旧对象解除绑定，会调用到 <code>weak_unregister_no_lock</code>），如果指针指向的新对象非空，则创建对应的弱引用表，将 weak 指针与新对象进行绑定，会调用到 weak_register_no_lock。在这个过程中，为了防止多线程中竞争冲突，会有一些锁的操作。</p>
+</li>
+<li><p><strong>3、释放时</strong>：调用 <code>clearDeallocating</code> 函数，<code>clearDeallocating</code> 函数首先根据对象地址获取所有 weak 指针地址的数组，然后遍历这个数组把其中的数据设为 nil，最后把这个 entry 从 weak 表中删除，最后清理对象的记录。</p>
+</li>
+</ul>
+<h2 id="6-讲一下-OC-的消息机制"><a href="#6-讲一下-OC-的消息机制" class="headerlink" title="6.讲一下 OC 的消息机制"></a>6.讲一下 OC 的消息机制</h2><p>Objective-C 的消息机制是其动态消息传递的核心特性，它是 Objective-C 语言中实现方法调用的机制。在 Objective-C 中，对象之间的通信是通过向对象发送消息来实现的，而不是像其他语言那样直接调用方法。</p>
+<p>消息机制的基本原理如下：</p>
+<ul>
+<li><p><strong>1、方法调用</strong>：在 Objective-C 中，调用对象的方法实际上是向对象发送一个消息。消息由方法名和对应的参数组成。</p>
+</li>
+<li><p><strong>2、动态绑定</strong>：在编译时，编译器并不会确定对象接收到消息时应该调用的具体方法，而是在运行时根据对象的类和方法选择器（selector）来动态确定调用的方法。这种动态确定方法的过程称为动态绑定。</p>
+</li>
+<li><p><strong>3、消息传递</strong>：当一个对象接收到消息时，Objective-C 运行时会根据消息的方法选择器（selector）在对象所属的类的方法列表（method list）中查找相应的方法实现。如果找到了匹配的方法实现，则调用该方法；如果找不到匹配的方法实现，则会执行消息转发（message forwarding）过程。</p>
+</li>
+<li><p>4、<strong>消息转发</strong>：当运行时无法在类的方法列表中找到与消息相匹配的方法实现时，Objective-C 运行时会调用对象的 <code>forwardingTargetForSelector:</code> 方法，尝试将消息转发给另一个对象处理。如果该方法返回一个有效的对象，则将消息转发给该对象；如果返回 nil，则会继续执行下一步的消息转发机制。</p>
+</li>
+<li><p><strong>5、动态方法解析</strong>：如果 <code>forwardingTargetForSelector:</code> 方法没有返回有效的对象，Objective-C 运行时会调用对象的 <code>resolveInstanceMethod:</code> 或 <code>resolveClassMethod:</code> 方法，尝试动态地添加方法实现。如果成功添加了方法实现，则会重新执行消息传递过程；如果仍然无法找到相应的方法实现，则会执行最后一步的消息转发机制。</p>
+</li>
+<li><p><strong>6、完整的消息转发</strong>：如果动态方法解析仍然无法找到相应的方法实现，则 Objective-C 运行时会调用对象的 <code>forwardInvocation:</code> 方法，将原始的未知消息封装成一个 <code>NSInvocation</code> 对象，并传递给 <code>forwardInvocation:</code> 方法进行处理。开发者可以在该方法中自定义处理未知消息的逻辑，例如将消息转发给其他对象进行处理。</p>
+</li>
+</ul>
+<h2 id="7-runtime具体应用"><a href="#7-runtime具体应用" class="headerlink" title="7.runtime具体应用"></a>7.runtime具体应用</h2><ul>
+<li><p>利用关联对象（AssociatedObject）给分类添加属性</p>
+</li>
+<li><p>遍历类的所有成员变量（修改textfield的占位文字颜色、字典转模型、自动归档解档）</p>
+</li>
+<li><p>交换方法实现（交换系统的方法）</p>
+</li>
+<li><p>利用消息转发机制解决方法找不到的异常问题</p>
+</li>
+<li><p>KVC 字典转模型</p>
+</li>
+</ul>
+<h2 id="8-runtime如何通过selector找到对应的IMP地址？"><a href="#8-runtime如何通过selector找到对应的IMP地址？" class="headerlink" title="8.runtime如何通过selector找到对应的IMP地址？"></a>8.runtime如何通过selector找到对应的IMP地址？</h2><p>每一个类对象中都一个对象方法列表（对象方法缓存）</p>
+<ul>
+<li><p>类方法列表是存放在类对象中isa指针指向的元类对象中（类方法缓存）。</p>
+</li>
+<li><p>方法列表中每个方法结构体中记录着方法的名称,方法实现,以及参数类型，其实selector本质就是方法名称,通过这个方法名称就可以在方法列表中找到对应的方法实现。</p>
+</li>
+<li><p>当我们发送一个消息给一个NSObject对象时，这条消息会在对象的类对象方法列表里查找。</p>
+</li>
+<li><p>当我们发送一个消息给一个类时，这条消息会在类的Meta Class对象的方法列表里查找。</p>
+</li>
+</ul>
+<h2 id="9-简述下Objective-C中调用方法的过程"><a href="#9-简述下Objective-C中调用方法的过程" class="headerlink" title="9.简述下Objective-C中调用方法的过程"></a>9.简述下Objective-C中调用方法的过程</h2><p>Objective-C是动态语言，每个方法在运行时会被动态转为消息发送，即：objc_msgSend(receiver, selector)，整个过程介绍如下：</p>
+<ul>
+<li><p>objc在向一个对象发送消息时，runtime库会根据对象的isa指针找到该对象实际所属的类</p>
+</li>
+<li><p>然后在该类中的方法列表以及其父类方法列表中寻找方法运行</p>
+</li>
+<li><p>如果，在最顶层的父类（一般也就NSObject）中依然找不到相应的方法时，程序在运行时会挂掉并抛出异常unrecognized selector sent to XXX</p>
+</li>
+<li><p>但是在这之前，objc的运行时会给出三次拯救程序崩溃的机会，这三次拯救程序奔溃的说明见问题《什么时候会报unrecognized selector的异常》中的说明。</p>
+</li>
+</ul>
+<h2 id="10-load和initialize的区别"><a href="#10-load和initialize的区别" class="headerlink" title="10.load和initialize的区别"></a>10.load和initialize的区别</h2><p>两者都会自动调用父类的，不需要super操作，且仅会调用一次（不包括外部显示调用).</p>
+<ul>
+<li><p>load和initialize方法都会在实例化对象之前调用，以main函数为分水岭，前者在main函数之前调用，后者在之后调用。这两个方法会被自动调用，不能手动调用它们。</p>
+</li>
+<li><p>load和initialize方法都不用显示的调用父类的方法而是自动调用，即使子类没有initialize方法也会调用父类的方法，而load方法则不会调用父类。</p>
+</li>
+<li><p>load方法通常用来进行Method Swizzle，initialize方法一般用于初始化全局变量或静态变量。</p>
+</li>
+<li><p>load和initialize方法内部使用了锁，因此它们是线程安全的。实现时要尽可能保持简单，避免阻塞线程，不要再使用锁。</p>
+</li>
+</ul>
+<h2 id="11-怎么理解Objective-C是动态运行时语言。"><a href="#11-怎么理解Objective-C是动态运行时语言。" class="headerlink" title="11.怎么理解Objective-C是动态运行时语言。"></a>11.怎么理解Objective-C是动态运行时语言。</h2><ul>
+<li><p>主要是将数据类型的确定由编译时,推迟到了运行时。这个问题其实浅涉及到两个概念,运行时和多态。</p>
+</li>
+<li><p>简单来说, 运行时机制使我们直到运行时才去决定一个对象的类别,以及调用该类别对象指定方法。</p>
+</li>
+<li><p>多态:不同对象以自己的方式响应相同的消息的能力叫做多态。</p>
+</li>
+<li><p>意思就是假设生物类(life)都拥有一个相同的方法-eat;那人类属于生物,猪也属于生物,都继承了life后,实现各自的eat,但是调用是我们只需调用各自的eat方法。也就是不同的对象以自己的方式响应了相同的消 息(响应了eat这个选择器)。因此也可以说,运行时机制是多态的基础.</p>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-01T02:34:56.000Z" title="2024/3/1 10:34:56">2024-03-01</time>发表</span><span class="level-item"><time dateTime="2025-07-04T12:04:56.930Z" title="2025/7/4 20:04:56">2025-07-04</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a><span> / </span><a class="link-muted" href="/categories/iOS%E5%BC%80%E5%8F%91/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span><span class="level-item">15 分钟读完 (大约2252个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%E5%A4%A7%E5%8E%82%E5%B8%B8%E9%97%AEiOS%E9%9D%A2%E8%AF%95%E9%A2%98-Runloop%E7%AF%87/">大厂常问iOS面试题--Runloop篇</a></p><div class="content"><h2 id="1-Runloop-和线程的关系？"><a href="#1-Runloop-和线程的关系？" class="headerlink" title="1.Runloop 和线程的关系？"></a>1.Runloop 和线程的关系？</h2><ul>
+<li><p>一个线程对应一个 Runloop。</p>
+</li>
+<li><p>主线程的默认就有了 Runloop。</p>
+</li>
+<li><p>子线程的 Runloop 以懒加载的形式创建。</p>
+</li>
+<li><p>Runloop 存储在一个全局的可变字典里，线程是 key ，Runloop 是 value。</p>
+</li>
+</ul>
+<h2 id="2-RunLoop的运行模式"><a href="#2-RunLoop的运行模式" class="headerlink" title="2.RunLoop的运行模式"></a>2.RunLoop的运行模式</h2><ul>
+<li><p>RunLoop的运行模式共有5种，RunLoop只会运行在一个模式下，要切换模式，就要暂停当前模式，重写启动一个运行模式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- kCFRunLoopDefaultMode, App的默认运行模式，通常主线程是在这个运行模式下运行</span><br><span class="line">- UITrackingRunLoopMode, 跟踪用户交互事件（用于 ScrollView 追踪触摸滑动，保证界面滑动时不受其他Mode影响）</span><br><span class="line">- kCFRunLoopCommonModes, 伪模式，不是一种真正的运行模式</span><br><span class="line">- UIInitializationRunLoopMode：在刚启动App时进入的第一个Mode，启动完成后就不再使用</span><br><span class="line">- GSEventReceiveRunLoopMode：接受系统内部事件，通常用不到</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3-runloop内部逻辑？"><a href="#3-runloop内部逻辑？" class="headerlink" title="3.runloop内部逻辑？"></a>3.runloop内部逻辑？</h2><ul>
+<li><p>实际上 RunLoop 就是这样一个函数，其内部是一个 do-while 循环。当你调用 CFRunLoopRun() 时，线程就会一直停留在这个循环里；直到超时或被手动停止，该函数才会返回。</p>
+<p><img src="/images/runloop.jpg"></p>
+</li>
+<li><p>内部逻辑：</p>
+<ol>
+<li><p>通知 Observer 已经进入了 RunLoop</p>
+</li>
+<li><p>通知 Observer 即将处理 Timer</p>
+</li>
+<li><p>通知 Observer 即将处理非基于端口的输入源（即将处理 Source0）</p>
+</li>
+<li><p>处理那些准备好的非基于端口的输入源（处理 Source0）</p>
+</li>
+<li><p>如果基于端口的输入源准备就绪并等待处理，请立刻处理该事件。转到第 9 步（处理 Source1）</p>
+</li>
+<li><p>通知 Observer 线程即将休眠</p>
+</li>
+<li><p>将线程置于休眠状态，直到发生以下事件之一</p>
+<ul>
+<li><p>事件到达基于端口的输入源（port-based input sources）(也就是 Source0)</p>
+</li>
+<li><p>Timer 到时间执行</p>
+</li>
+<li><p>外部手动唤醒</p>
+</li>
+<li><p>为 RunLoop 设定的时间超时</p>
+</li>
+</ul>
+</li>
+<li><p>通知 Observer 线程刚被唤醒（还没处理事件）</p>
+</li>
+<li><p>处理待处理事件</p>
+<ul>
+<li><p>如果是 Timer 事件，处理 Timer 并重新启动循环，跳到第 2 步</p>
+</li>
+<li><p>如果输入源被触发，处理该事件（文档上是 deliver the event）</p>
+</li>
+<li><p>如果 RunLoop 被手动唤醒但尚未超时，重新启动循环，跳到第 2 步</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="4-autoreleasePool-在何时被释放？"><a href="#4-autoreleasePool-在何时被释放？" class="headerlink" title="4.autoreleasePool 在何时被释放？"></a>4.autoreleasePool 在何时被释放？</h2><ul>
+<li><p>App启动后，苹果在主线程 RunLoop 里注册了两个 Observer，其回调都是 _wrapRunLoopWithAutoreleasePoolHandler()。</p>
+</li>
+<li><p>第一个 Observer 监视的事件是 Entry(即将进入Loop)，其回调内会调用 _objc_autoreleasePoolPush() 创建自动释放池。其 order 是 -2147483647，优先级最高，保证创建释放池发生在其他所有回调之前。</p>
+</li>
+<li><p>第二个 Observer 监视了两个事件： BeforeWaiting(准备进入休眠) 时调用_objc_autoreleasePoolPop() 和 _objc_autoreleasePoolPush() 释放旧的池并创建新池；Exit(即将退出Loop) 时调用 _objc_autoreleasePoolPop() 来释放自动释放池。这个 Observer 的 order 是 2147483647，优先级最低，保证其释放池子发生在其他所有回调之后。</p>
+</li>
+<li><p>在主线程执行的代码，通常是写在诸如事件回调、Timer回调内的。这些回调会被 RunLoop 创建好的 AutoreleasePool 环绕着，所以不会出现内存泄漏，开发者也不必显示创建 Pool 了。</p>
+</li>
+</ul>
+<h2 id="5-GCD-在Runloop中的使用？"><a href="#5-GCD-在Runloop中的使用？" class="headerlink" title="5.GCD 在Runloop中的使用？"></a>5.GCD 在Runloop中的使用？</h2><ul>
+<li>GCD由 子线程 返回到 主线程,只有在这种情况下才会触发 RunLoop。会触发 RunLoop 的 Source 1 事件。</li>
+</ul>
+<h2 id="6-AFNetworking-中如何运用-Runloop"><a href="#6-AFNetworking-中如何运用-Runloop" class="headerlink" title="6.AFNetworking 中如何运用 Runloop?"></a>6.AFNetworking 中如何运用 Runloop?</h2><ul>
+<li><p>AFURLConnectionOperation 这个类是基于 NSURLConnection 构建的，其希望能在后台线程接收 Delegate 回调。为此 AFNetworking 单独创建了一个线程，并在这个线程中启动了一个 RunLoop：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">+ (void)networkRequestThreadEntryPoint:(id)__unused object &#123;</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        [[NSThread currentThread] setName:@&quot;AFNetworking&quot;];</span><br><span class="line">        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];</span><br><span class="line">        [runLoop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];</span><br><span class="line">        [runLoop run];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (NSThread *)networkRequestThread &#123;</span><br><span class="line">    static NSThread *_networkRequestThread = nil;</span><br><span class="line">    static dispatch_once_t oncePredicate;</span><br><span class="line">    dispatch_once(&amp;oncePredicate, ^&#123;</span><br><span class="line">        _networkRequestThread = [[NSThread alloc] initWithTarget:self selector:@selector(networkRequestThreadEntryPoint:) object:nil];</span><br><span class="line">        [_networkRequestThread start];</span><br><span class="line">    &#125;);</span><br><span class="line">    return _networkRequestThread;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>RunLoop 启动前内部必须要有至少一个 Timer&#x2F;Observer&#x2F;Source，所以 AFNetworking 在 [runLoop run] 之前先创建了一个新的 NSMachPort 添加进去了。通常情况下，调用者需要持有这个 NSMachPort (mach_port) 并在外部线程通过这个 port 发送消息到 loop 内；但此处添加 port 只是为了让 RunLoop 不至于退出，并没有用于实际的发送消息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (void)start &#123;</span><br><span class="line">    [self.lock lock];</span><br><span class="line">    if ([self isCancelled]) &#123;</span><br><span class="line">        [self performSelector:@selector(cancelConnection) onThread:[[self class] networkRequestThread] withObject:nil waitUntilDone:NO modes:[self.runLoopModes allObjects]];</span><br><span class="line">    &#125; else if ([self isReady]) &#123;</span><br><span class="line">        self.state = AFOperationExecutingState;</span><br><span class="line">        [self performSelector:@selector(operationDidStart) onThread:[[self class] networkRequestThread] withObject:nil waitUntilDone:NO modes:[self.runLoopModes allObjects]];</span><br><span class="line">    &#125;</span><br><span class="line">    [self.lock unlock];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当需要这个后台线程执行任务时，AFNetworking 通过调用 [NSObject performSelector:onThread:..] 将这个任务扔到了后台线程的 RunLoop 中。</p>
+</li>
+</ul>
+<h2 id="7-PerformSelector-的实现原理？"><a href="#7-PerformSelector-的实现原理？" class="headerlink" title="7.PerformSelector 的实现原理？"></a>7.PerformSelector 的实现原理？</h2><ul>
+<li><p>当调用 NSObject 的 performSelecter:afterDelay: 后，实际上其内部会创建一个 Timer 并添加到当前线程的 RunLoop 中。所以如果当前线程没有 RunLoop，则这个方法会失效。</p>
+</li>
+<li><p>当调用 performSelector:onThread: 时，实际上其会创建一个 Timer 加到对应的线程去，同样的，如果对应线程没有 RunLoop 该方法也会失效。</p>
+</li>
+</ul>
+<h2 id="8-PerformSelector-afterDelay-这个方法在子线程中是否起作用？"><a href="#8-PerformSelector-afterDelay-这个方法在子线程中是否起作用？" class="headerlink" title="8.PerformSelector:afterDelay:这个方法在子线程中是否起作用？"></a>8.PerformSelector:afterDelay:这个方法在子线程中是否起作用？</h2><ul>
+<li>不起作用，子线程默认没有 Runloop，也就没有 Timer。可以使用 GCD的dispatch_after来实现</li>
+</ul>
+<h2 id="9-事件响应的过程？"><a href="#9-事件响应的过程？" class="headerlink" title="9.事件响应的过程？"></a>9.事件响应的过程？</h2><ul>
+<li><p>苹果注册了一个 Source1 (基于 mach port 的) 用来接收系统事件，其回调函数为 __IOHIDEventSystemClientQueueCallback()。</p>
+</li>
+<li><p>当一个硬件事件(触摸&#x2F;锁屏&#x2F;摇晃等)发生后，首先由 IOKit.framework 生成一个 IOHIDEvent 事件并由 SpringBoard 接收。这个过程的详细情况可以参考这里。SpringBoard 只接收按键(锁屏&#x2F;静音等)，触摸，加速，接近传感器等几种 Event，随后用 mach port 转发给需要的 App 进程。随后苹果注册的那个 Source1 就会触发回调，并调用 _UIApplicationHandleEventQueue() 进行应用内部的分发。</p>
+</li>
+<li><p>_UIApplicationHandleEventQueue() 会把 IOHIDEvent 处理并包装成 UIEvent 进行处理或分发，其中包括识别 UIGesture&#x2F;处理屏幕旋转&#x2F;发送给 UIWindow 等。通常事件比如 UIButton 点击、touchesBegin&#x2F;Move&#x2F;End&#x2F;Cancel 事件都是在这个回调中完成的。</p>
+</li>
+</ul>
+<h2 id="10-手势识别的过程？"><a href="#10-手势识别的过程？" class="headerlink" title="10.手势识别的过程？"></a>10.手势识别的过程？</h2><ul>
+<li><p>当 _UIApplicationHandleEventQueue() 识别了一个手势时，其首先会调用 Cancel 将当前的 touchesBegin&#x2F;Move&#x2F;End 系列回调打断。随后系统将对应的 UIGestureRecognizer 标记为待处理。</p>
+</li>
+<li><p>苹果注册了一个 Observer 监测 BeforeWaiting (Loop即将进入休眠) 事件，这个 Observer 的回调函数是 _UIGestureRecognizerUpdateObserver()，其内部会获取所有刚被标记为待处理的 GestureRecognizer，并执行GestureRecognizer 的回调。</p>
+</li>
+<li><p>当有 UIGestureRecognizer 的变化(创建&#x2F;销毁&#x2F;状态改变)时，这个回调都会进行相应处理。</p>
+</li>
+</ul>
+<h2 id="11-CADisplayLink和Timer哪个更精确"><a href="#11-CADisplayLink和Timer哪个更精确" class="headerlink" title="11.CADisplayLink和Timer哪个更精确"></a>11.CADisplayLink和Timer哪个更精确</h2><p>CADisplayLink 更精确</p>
+<ul>
+<li><p>iOS设备的屏幕刷新频率是固定的，CADisplayLink在正常情况下会在每次刷新结束都被调用，精确度相当高。</p>
+</li>
+<li><p>NSTimer的精确度就显得低了点，比如NSTimer的触发时间到的时候，runloop如果在阻塞状态，触发时间就会推迟到下一个runloop周期。并且 NSTimer新增了tolerance属性，让用户可以设置可以容忍的触发的时间的延迟范围。</p>
+</li>
+<li><p>CADisplayLink使用场合相对专一，适合做UI的不停重绘，比如自定义动画引擎或者视频播放的渲染。NSTimer的使用范围要广泛的多，各种需要单次或者循环定时处理的任务都可以使用。在UI相关的动画或者显示内容使用 CADisplayLink比起用NSTimer的好处就是我们不需要在格外关心屏幕的刷新频率了，因为它本身就是跟屏幕刷新同步的。</p>
+</li>
+<li><p>iOS设备的屏幕刷新频率是固定的，CADisplayLink在正常情况下会在每次刷新结束都被调用，精确度相当高。</p>
+</li>
+<li><p>NSTimer的精确度就显得低了点，比如NSTimer的触发时间到的时候，runloop如果在阻塞状态，触发时间就会推迟到下一个runloop周期。并且 NSTimer新增了tolerance属性，让用户可以设置可以容忍的触发的时间的延迟范围。</p>
+</li>
+<li><p>CADisplayLink使用场合相对专一，适合做UI的不停重绘，比如自定义动画引擎或者视频播放的渲染。NSTimer的使用范围要广泛的多，各种需要单次或者循环定时处理的任务都可以使用。在UI相关的动画或者显示内容使用 CADisplayLink比起用NSTimer的好处就是我们不需要在格外关心屏幕的刷新频率了，因为它本身就是跟屏幕刷新同步的。</p>
+</li>
+</ul>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/categories/iOS%E5%BC%80%E5%8F%91/page/2/">上一页</a></div><div class="pagination-next is-invisible is-hidden-mobile"><a href="/categories/iOS%E5%BC%80%E5%8F%91/page/4/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/categories/iOS%E5%BC%80%E5%8F%91/">1</a></li><li><a class="pagination-link" href="/categories/iOS%E5%BC%80%E5%8F%91/page/2/">2</a></li><li><a class="pagination-link is-current" href="/categories/iOS%E5%BC%80%E5%8F%91/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/logoNew.svg" alt="置身于正，勇于攀登"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">置身于正，勇于攀登</p><p class="is-size-6 is-block">大丈夫生于天地间 岂能郁郁久居人下</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国·成都</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">34</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">74</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/despacito2"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/WTF_C69"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://qm.qq.com/cgi-bin/qm/qr?k=rTH0EcmelH7hsRL9MkYD1Xw8m7RT4NNV&amp;jump_from=webapi&amp;authKey=B+kszDp7XNLzePIu1HeGOokQtbHdJW79aOFDatCgh/dWveDNDOJ+KHAbSdrvelkR" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">iOS审核上架交流群</span></span><span class="level-right"><span class="level-item tag">qm.qq.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/iOS%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">iOS开发</span></span><span class="level-end"><span class="level-item tag">24</span></span></a><ul><li><a class="level is-mobile" href="/categories/iOS%E5%BC%80%E5%8F%91/%E9%9D%A2%E8%AF%95%E9%A2%98/"><span class="level-start"><span class="level-item">面试题</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/"><span class="level-start"><span class="level-item">好文收录</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/"><span class="level-start"><span class="level-item">缠论原文</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2025/07/"><span class="level-start"><span class="level-item">七月 2025</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4191566366727150" data-ad-slot="4095483014" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-04T15:45:00.000Z">2025-07-04</time></p><p class="title"><a href="/%E6%95%99%E4%BD%A0%E7%82%92%E8%82%A1%E7%A5%A810%EF%BC%9A2005%E5%B9%B46%E6%9C%88%EF%BC%8C%E6%9C%ACID%E4%B8%BA%E4%BD%95%E6%97%B6%E9%9A%94%E5%9B%9B%E5%B9%B4%E5%90%8E%E9%87%8D%E7%9C%8B%E8%82%A1%E7%A5%A8/">教你炒股票10：2005年6月，本ID为何时隔四年后重看股票</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-04T15:44:51.000Z">2025-07-04</time></p><p class="title"><a href="/%E6%95%99%E4%BD%A0%E7%82%92%E8%82%A1%E7%A5%A89%EF%BC%9A%E7%94%84%E5%88%AB%E2%80%9C%E6%97%A9%E6%B3%84%E2%80%9D%E7%94%B7%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E5%88%99%EF%BC%81/">教你炒股票9：甄别“早泄”男的数学原则！</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-04T15:43:51.000Z">2025-07-04</time></p><p class="title"><a href="/%E6%95%99%E4%BD%A0%E7%82%92%E8%82%A1%E7%A5%A88%EF%BC%9A%E6%8A%95%E8%B5%84%E5%A6%82%E9%80%89%E9%9D%A2%E9%A6%96%EF%BC%8CG%E7%82%B9%E4%B8%BA%E4%B8%AD%E5%BF%83%EF%BC%8C%E6%8B%92%E7%BB%9DED%E7%94%B7%EF%BC%81/">教你炒股票8：投资如选面首，G点为中心，拒绝ED男！</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-04T15:42:51.000Z">2025-07-04</time></p><p class="title"><a href="/%E6%95%99%E4%BD%A0%E7%82%92%E8%82%A1%E7%A5%A87%EF%BC%9A%E7%BB%99%E8%B5%9A%E4%BA%86%E6%8C%87%E6%95%B0%E4%BA%8F%E4%BA%86%E9%92%B1%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%A0%E5%91%8A/">教你炒股票7：给赚了指数亏了钱的一些忠告</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-04T15:41:51.000Z">2025-07-04</time></p><p class="title"><a href="/%E6%95%99%E4%BD%A0%E7%82%92%E8%82%A1%E7%A5%A86%EF%BC%9A%E6%9C%ACID%E5%A6%82%E4%BD%95%E5%9C%A8%E4%BA%94%E7%B2%AE%E6%B6%B2%E3%80%81%E5%8C%85%E9%92%A2%E6%9D%83%E8%AF%81%E4%B8%8A%E6%8F%90%E6%AC%BE%E7%9A%84%EF%BC%81/">教你炒股票6：本ID如何在五粮液、包钢权证上提款的！</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/images/logo.png" alt="人间正道" height="28"></a><p class="is-size-7"><span>&copy; 2025 人间正道</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/despacito2"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

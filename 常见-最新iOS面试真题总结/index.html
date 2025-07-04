@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="google-site-verification" content="4xeRrGz75ndIdizFDms5sFLsaZXJ4UfzKvxLBsSZKS8"><meta name="robots" content="index, follow"><title>常见 iOS 面试真题汇总（基础、实战、系统、网络、架构全覆盖） - 人间正道</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="人间正道是沧桑"><meta name="msapplication-TileImage" content="images/faviconNew.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="人间正道是沧桑"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="整理常见 iOS 面试题目合集，涵盖基础语法、系统底层、网络协议、算法与数据结构、架构设计等内容，适用于准备大厂及中小型公司 iOS 岗位的开发者。"><meta property="og:type" content="blog"><meta property="og:title" content="常见 iOS 面试真题汇总（基础、实战、系统、网络、架构全覆盖）"><meta property="og:url" content="https://despacito2.github.io/%E5%B8%B8%E8%A7%81-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/"><meta property="og:site_name" content="人间正道"><meta property="og:description" content="整理常见 iOS 面试题目合集，涵盖基础语法、系统底层、网络协议、算法与数据结构、架构设计等内容，适用于准备大厂及中小型公司 iOS 岗位的开发者。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://despacito2.github.io/img/og_image.png"><meta property="article:published_time" content="2024-03-02T15:30:32.000Z"><meta property="article:modified_time" content="2025-07-03T16:00:00.000Z"><meta property="article:author" content="人间正道"><meta property="article:tag" content="多线程"><meta property="article:tag" content="数据结构"><meta property="article:tag" content="iOS面试真题"><meta property="article:tag" content="iOS基础"><meta property="article:tag" content="架构设计"><meta property="article:tag" content="网络通信"><meta property="article:tag" content="系统底层"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://despacito2.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://despacito2.github.io/"},"headline":"常见 iOS 面试真题汇总（基础、实战、系统、网络、架构全覆盖）","image":["https://despacito2.github.io/img/og_image.png"],"datePublished":"2024-03-02T15:30:32.000Z","dateModified":"2025-07-03T16:00:00.000Z","author":{"@type":"Person","name":"人间正道"},"publisher":{"@type":"Organization","name":"人间正道","logo":{"@type":"ImageObject","url":"https://despacito2.github.io/images/logo.png"}},"description":"整理常见 iOS 面试题目合集，涵盖基础语法、系统底层、网络协议、算法与数据结构、架构设计等内容，适用于准备大厂及中小型公司 iOS 岗位的开发者。"}</script><link rel="canonical" href="https://despacito2.github.io/%E5%B8%B8%E8%A7%81-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/"><link rel="icon" href="/images/faviconNew.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><script data-ad-client="ca-pub-4191566366727150" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/images/logo.png" alt="人间正道" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">文章</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/page">好文收录</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/despacito2"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-02T15:30:32.000Z" title="2024/3/2 23:30:32">2024-03-02</time>发表</span><span class="level-item"><time dateTime="2025-07-03T16:00:00.000Z" title="2025/7/4 00:00:00">2025-07-04</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a><span> / </span><a class="link-muted" href="/categories/iOS%E5%BC%80%E5%8F%91/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span><span class="level-item">9 分钟读完 (大约1289个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">常见 iOS 面试真题汇总（基础、实战、系统、网络、架构全覆盖）</h1><div class="content"><h1 id="常见-iOS-面试真题总结（持续更新）"><a href="#常见-iOS-面试真题总结（持续更新）" class="headerlink" title="常见 iOS 面试真题总结（持续更新）"></a>常见 iOS 面试真题总结（持续更新）</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>近期的 iOS 面试求职可以说是经历了一波小高潮。话不多说，下面是我精心整理的一份 iOS 面试真题合集，覆盖各类公司常问问题，供大家查缺补漏。</p>
+<hr>
+<h2 id="面试题目录"><a href="#面试题目录" class="headerlink" title="面试题目录"></a>面试题目录</h2><ol>
+<li><a href="#1ios-%E5%9F%BA%E7%A1%80%E9%A2%98">iOS 基础题</a>  </li>
+<li><a href="#2ios-%E5%AE%9E%E6%88%98%E9%A2%98">iOS 实战题</a>  </li>
+<li><a href="#3%E7%BD%91%E7%BB%9C%E9%A2%98">网络通信题</a>  </li>
+<li><a href="#4%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E9%A2%98">计算机系统题</a>  </li>
+<li><a href="#5%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%A2%98">设计模式题</a>  </li>
+<li><a href="#6%E6%9E%B6%E6%9E%84--%E8%AE%BE%E8%AE%A1%E9%A2%98">架构设计题</a>  </li>
+<li><a href="#7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95%E9%A2%98">数据结构与算法题</a>  </li>
+<li><a href="#8%E9%A2%9D%E5%A4%96%E8%A1%A5%E5%85%85">补充题</a></li>
+</ol>
+<hr>
+<h2 id="1、iOS-基础题"><a href="#1、iOS-基础题" class="headerlink" title="1、iOS 基础题"></a>1、iOS 基础题</h2><ul>
+<li>分类（Category）和扩展（Extension）的区别及使用场景？</li>
+<li><code>atomic</code> 的实现机制？为什么不能保证线程安全？</li>
+<li><code>__weak</code> 修饰符的释放过程？SideTable 的结构与作用？</li>
+<li>AutoreleasePool 的数据结构及 <code>AutoreleasePoolPage</code> 的底层分析</li>
+<li>对象、类对象、元类的关系？为什么方法存在类对象中？</li>
+<li>Objective-C 中的内省方法、<code>class</code> 与 <code>objc_getClass</code> 区别？</li>
+<li>RunLoop 的作用及内部机制？与线程&#x2F;内存管理的关系？</li>
+<li>离屏渲染的触发场景及性能影响？</li>
+</ul>
+<hr>
+<h2 id="2、iOS-实战题"><a href="#2、iOS-实战题" class="headerlink" title="2、iOS 实战题"></a>2、iOS 实战题</h2><ul>
+<li><code>NSOperation</code> 相比 <code>GCD</code> 的优势和使用场景？</li>
+<li>App 启动优化策略（main 函数前后阶段分析）</li>
+<li>无埋点埋点系统的实现思路？应具备哪些特性？</li>
+<li>App 崩溃场景分析与处理手段</li>
+<li>App 卡顿的原因与性能优化方法（如帧率监测、主线程任务分离等）</li>
+</ul>
+<hr>
+<h2 id="3、网络题"><a href="#3、网络题" class="headerlink" title="3、网络题"></a>3、网络题</h2><ul>
+<li>App 网络层优化策略有哪些？（缓存、压缩、重试机制等）</li>
+<li>TCP 三次握手、四次挥手原理？为何必须三次？</li>
+<li>HTTPS 握手流程、非对称加密使用原因、双向认证？</li>
+<li>HTTPS 如何校验身份与数据完整性？</li>
+<li>如何用 Charles 抓取 HTTPS 请求？中间人证书原理？</li>
+</ul>
+<hr>
+<h2 id="4、计算机系统题"><a href="#4、计算机系统题" class="headerlink" title="4、计算机系统题"></a>4、计算机系统题</h2><ul>
+<li>编译过程的各个阶段（预处理、编译、汇编、链接）</li>
+<li>静态链接 vs 动态链接？.a 和 .dylib 区别？</li>
+<li><code>static</code> 与 <code>const</code> 的区别与使用场景？</li>
+<li>死锁出现的四个条件？如何预防？</li>
+<li>常见锁的类型、底层实现、性能对比与适用场景？</li>
+</ul>
+<hr>
+<h2 id="5、设计模式题"><a href="#5、设计模式题" class="headerlink" title="5、设计模式题"></a>5、设计模式题</h2><ul>
+<li>除了单例、观察者，还了解哪些设计模式？</li>
+<li>iOS SDK 中使用的设计模式示例（MVC、代理、组合等）</li>
+<li>每种设计模式的参与角色与交互机制？</li>
+</ul>
+<hr>
+<h2 id="6、架构-设计题"><a href="#6、架构-设计题" class="headerlink" title="6、架构 &amp; 设计题"></a>6、架构 &amp; 设计题</h2><ul>
+<li>MVC、MVVM、MVP 的本质区别与优缺点？</li>
+<li>面向对象的 SOLID 原则？如何在项目中落地？</li>
+<li>常见重构技巧？重构的时机与作用？</li>
+<li>框架 vs 设计模式 的本质区别？</li>
+<li>三方框架源码分析（如 AFNetworking、Masonry、SDWebImage）与设计思想总结</li>
+</ul>
+<hr>
+<h2 id="7、数据结构-算法题"><a href="#7、数据结构-算法题" class="headerlink" title="7、数据结构 &amp; 算法题"></a>7、数据结构 &amp; 算法题</h2><ul>
+<li>链表与数组的区别？插入&#x2F;查找复杂度？</li>
+<li>哈希表结构、冲突解决方法（开放定址、链式散列等）</li>
+<li>排序算法手写：冒泡、选择、插入、快速排序（二路&#x2F;三路）</li>
+<li>链表题：判断链表有无环；删除特定值节点</li>
+<li>数组题：有序数组中找和为指定值的两个数；合并有序数组</li>
+<li>二叉树题：反转二叉树；判断两个二叉树是否相等</li>
+</ul>
+<hr>
+<h2 id="8、额外补充（进阶-冷门）"><a href="#8、额外补充（进阶-冷门）" class="headerlink" title="8、额外补充（进阶 &amp; 冷门）"></a>8、额外补充（进阶 &amp; 冷门）</h2><ul>
+<li>UIView 与 CALayer 的关系？drawRect 是否影响性能？</li>
+<li>UIImageView 如何显示超大图并支持缩放？</li>
+<li><code>fishhook</code> 如何工作？为何不能修改静态链接库符号？</li>
+<li>C++ 虚函数调用 vs Objective-C 消息发送机制？</li>
+<li><code>placement new</code> 是什么？OC 中如何实现？</li>
+<li>ARC 下 C++ 容器如何管理 Objective-C 对象？</li>
+<li><code>id</code>、<code>self</code>、<code>super</code> 的语法差异？</li>
+<li><code>isa</code> 指针结构和作用？</li>
+<li>Block 修改变量除了 __block 还有什么方法？</li>
+<li><code>NSDictionary</code> 和 <code>NSHashTable</code> 区别与场景？</li>
+<li>Swift 中 String.Index 的设计优缺点？</li>
+<li>TCP 长连接断网后服务器是否能立即感知？</li>
+<li>Wireshark 抓不到 SSL 原始数据的原因？</li>
+<li><code>backtrace</code> 的实现原理？用户态 or 内核态？</li>
+<li><code>malloc</code> 指针 double free 与访问 freed 指针的异常区别？</li>
+<li>RunLoop 是死循环吗？为何不会卡死系统？</li>
+<li>Runtime 源码中的 fastpath&#x2F;slowpath 机制？</li>
+<li>Runtime 中 SideTable 的用途？</li>
+<li>Objective-C 如何实现系统升级下的 ABI 稳定性？</li>
+</ul>
+<hr>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>刷题只是准备面试的一部分，更关键的是理解每一个问题背后的原理与设计理念。在找工作的同时，不断提升技术深度，整理项目亮点，打磨软实力，才能真正从容应对。</p>
+<p>✨ 祝每位正在准备 iOS 面试的开发者都能收获满意的 offer！你值得更好的舞台！</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>常见 iOS 面试真题汇总（基础、实战、系统、网络、架构全覆盖）</p><p><a href="https://despacito2.github.io/常见-最新iOS面试真题总结/">https://despacito2.github.io/常见-最新iOS面试真题总结/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>人间正道</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-03-02</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2025-07-04</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><a class="link-muted mr-2" rel="tag" href="/tags/iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98/">iOS面试真题</a><a class="link-muted mr-2" rel="tag" href="/tags/iOS%E5%9F%BA%E7%A1%80/">iOS基础</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">架构设计</a><a class="link-muted mr-2" rel="tag" href="/tags/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/">网络通信</a><a class="link-muted mr-2" rel="tag" href="/tags/%E7%B3%BB%E7%BB%9F%E5%BA%95%E5%B1%82/">系统底层</a></div><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_telegram"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_reddit"></a></div><script src="https://static.addtoany.com/menu/page.js" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/images/AliPay.jpg" alt="支付宝"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/images/Wechat.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/%E6%95%99%E4%BD%A0%E7%82%92%E8%82%A1%E7%A5%A81%EF%BC%9A%E4%B8%8D%E4%BC%9A%E8%B5%A2%E9%92%B1%E7%9A%84%E7%BB%8F%E6%B5%8E%E4%BA%BA%EF%BC%8C%E5%8F%AA%E6%98%AF%E5%BA%9F%E4%BA%BA%EF%BC%81/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">教你炒股票1：不会赢钱的经济人，只是废人！</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/%E9%98%BF%E9%87%8C-%E6%9C%80%E6%96%B0iOS%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98%E6%80%BB%E7%BB%93/"><span class="level-item">阿里巴巴 iOS 面试真题总结（含一二三面详解）</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="SOHUCS" sid="常见-最新iOS面试真题总结/"></div><script charset="utf-8" src="https://changyan.sohu.com/upload/changyan.js"></script><script>window.changyan.api.config({appid: 'cyxaFSXEM',conf: 'prod_4a835e972e932e50e03bc48f94446cd3'});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/logoNew.svg" alt="置身于正，勇于攀登"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">置身于正，勇于攀登</p><p class="is-size-6 is-block">大丈夫生于天地间 岂能郁郁久居人下</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国·成都</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">34</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">74</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/despacito2"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/WTF_C69"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://qm.qq.com/cgi-bin/qm/qr?k=rTH0EcmelH7hsRL9MkYD1Xw8m7RT4NNV&amp;jump_from=webapi&amp;authKey=B+kszDp7XNLzePIu1HeGOokQtbHdJW79aOFDatCgh/dWveDNDOJ+KHAbSdrvelkR" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">iOS审核上架交流群</span></span><span class="level-right"><span class="level-item tag">qm.qq.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/iOS%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">iOS开发</span></span><span class="level-end"><span class="level-item tag">24</span></span></a><ul><li><a class="level is-mobile" href="/categories/iOS%E5%BC%80%E5%8F%91/%E9%9D%A2%E8%AF%95%E9%A2%98/"><span class="level-start"><span class="level-item">面试题</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/"><span class="level-start"><span class="level-item">好文收录</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/"><span class="level-start"><span class="level-item">缠论原文</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2025/07/"><span class="level-start"><span class="level-item">七月 2025</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4191566366727150" data-ad-slot="4095483014" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#常见-iOS-面试真题总结（持续更新）"><span class="level-left"><span class="level-item">常见 iOS 面试真题总结（持续更新）</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#前言"><span class="level-left"><span class="level-item">前言</span></span></a></li><li><a class="level is-mobile" href="#面试题目录"><span class="level-left"><span class="level-item">面试题目录</span></span></a></li><li><a class="level is-mobile" href="#1、iOS-基础题"><span class="level-left"><span class="level-item">1、iOS 基础题</span></span></a></li><li><a class="level is-mobile" href="#2、iOS-实战题"><span class="level-left"><span class="level-item">2、iOS 实战题</span></span></a></li><li><a class="level is-mobile" href="#3、网络题"><span class="level-left"><span class="level-item">3、网络题</span></span></a></li><li><a class="level is-mobile" href="#4、计算机系统题"><span class="level-left"><span class="level-item">4、计算机系统题</span></span></a></li><li><a class="level is-mobile" href="#5、设计模式题"><span class="level-left"><span class="level-item">5、设计模式题</span></span></a></li><li><a class="level is-mobile" href="#6、架构-设计题"><span class="level-left"><span class="level-item">6、架构 &amp; 设计题</span></span></a></li><li><a class="level is-mobile" href="#7、数据结构-算法题"><span class="level-left"><span class="level-item">7、数据结构 &amp; 算法题</span></span></a></li><li><a class="level is-mobile" href="#8、额外补充（进阶-冷门）"><span class="level-left"><span class="level-item">8、额外补充（进阶 &amp; 冷门）</span></span></a></li><li><a class="level is-mobile" href="#结语"><span class="level-left"><span class="level-item">结语</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-04T15:45:00.000Z">2025-07-04</time></p><p class="title"><a href="/%E6%95%99%E4%BD%A0%E7%82%92%E8%82%A1%E7%A5%A810%EF%BC%9A2005%E5%B9%B46%E6%9C%88%EF%BC%8C%E6%9C%ACID%E4%B8%BA%E4%BD%95%E6%97%B6%E9%9A%94%E5%9B%9B%E5%B9%B4%E5%90%8E%E9%87%8D%E7%9C%8B%E8%82%A1%E7%A5%A8/">教你炒股票10：2005年6月，本ID为何时隔四年后重看股票</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-04T15:44:51.000Z">2025-07-04</time></p><p class="title"><a href="/%E6%95%99%E4%BD%A0%E7%82%92%E8%82%A1%E7%A5%A89%EF%BC%9A%E7%94%84%E5%88%AB%E2%80%9C%E6%97%A9%E6%B3%84%E2%80%9D%E7%94%B7%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E5%88%99%EF%BC%81/">教你炒股票9：甄别“早泄”男的数学原则！</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-04T15:43:51.000Z">2025-07-04</time></p><p class="title"><a href="/%E6%95%99%E4%BD%A0%E7%82%92%E8%82%A1%E7%A5%A88%EF%BC%9A%E6%8A%95%E8%B5%84%E5%A6%82%E9%80%89%E9%9D%A2%E9%A6%96%EF%BC%8CG%E7%82%B9%E4%B8%BA%E4%B8%AD%E5%BF%83%EF%BC%8C%E6%8B%92%E7%BB%9DED%E7%94%B7%EF%BC%81/">教你炒股票8：投资如选面首，G点为中心，拒绝ED男！</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-04T15:42:51.000Z">2025-07-04</time></p><p class="title"><a href="/%E6%95%99%E4%BD%A0%E7%82%92%E8%82%A1%E7%A5%A87%EF%BC%9A%E7%BB%99%E8%B5%9A%E4%BA%86%E6%8C%87%E6%95%B0%E4%BA%8F%E4%BA%86%E9%92%B1%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%A0%E5%91%8A/">教你炒股票7：给赚了指数亏了钱的一些忠告</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-04T15:41:51.000Z">2025-07-04</time></p><p class="title"><a href="/%E6%95%99%E4%BD%A0%E7%82%92%E8%82%A1%E7%A5%A86%EF%BC%9A%E6%9C%ACID%E5%A6%82%E4%BD%95%E5%9C%A8%E4%BA%94%E7%B2%AE%E6%B6%B2%E3%80%81%E5%8C%85%E9%92%A2%E6%9D%83%E8%AF%81%E4%B8%8A%E6%8F%90%E6%AC%BE%E7%9A%84%EF%BC%81/">教你炒股票6：本ID如何在五粮液、包钢权证上提款的！</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/images/logo.png" alt="人间正道" height="28"></a><p class="is-size-7"><span>&copy; 2025 人间正道</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/despacito2"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
