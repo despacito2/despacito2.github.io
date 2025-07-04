@@ -1,10 +1,14 @@
 title: 人间正道
-subtitle: ''
-description: ''
-keywords: null
+subtitle: 分享编程、工具和生活思考
+description: 一个记录编程笔记、技术工具和个人成长思考的博客。
+keywords:
+  - 编程
+  - 技术博客
+  - 工具推荐
+  - 人间正道
 author: 人间正道
 language: zh-CN
-timezone: ''
+timezone: Asia/Shanghai
 url: https://despacito2.github.io/
 # permalink: ':year/:month/:day/:title/'
 permalink: ':title/'
@@ -67,3 +71,13 @@ deploy:
 # 自动生成sitemap
 sitemap:
     path: sitemap.xml
+robotstxt:
+  useragent: '*'
+  allow: /
+  sitemap: https://despacito2.github.io/sitemap.xml
+seo:
+  title: true
+  description: true
+  keywords: true
+  open_graph: true
+  twitter_card: true
