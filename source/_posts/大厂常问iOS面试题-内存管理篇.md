@@ -5,8 +5,8 @@ tags:
   - 内存管理
 toc: true
 categories:
-  - iOS
-  - iOS面试题
+  - iOS开发
+  - 面试题
 abbrlink: d873727c
 date: 2024-03-01 14:03:56
 ---

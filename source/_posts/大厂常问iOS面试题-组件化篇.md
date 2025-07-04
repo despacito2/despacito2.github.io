@@ -5,8 +5,8 @@ tags:
   - 组件
 toc: true
 categories:
-  - iOS
-  - iOS面试题
+  - iOS开发
+  - 面试题
 abbrlink: 5851d297
 date: 2024-03-01 16:58:36
 ---

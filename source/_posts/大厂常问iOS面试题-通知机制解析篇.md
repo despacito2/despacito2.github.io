@@ -5,8 +5,8 @@ tags:
   - 通知机制解析
 toc: true
 categories:
-  - iOS
-  - iOS面试题
+  - iOS开发
+  - 面试题
 abbrlink: a5c69c69
 date: 2024-03-02 22:38:52
 ---

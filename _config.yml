@@ -73,7 +73,8 @@ sitemap:
     path: sitemap.xml
 robotstxt:
   useragent: '*'
-  allow: /
+  allow:
+    - /
   sitemap: https://despacito2.github.io/sitemap.xml
 seo:
   title: true

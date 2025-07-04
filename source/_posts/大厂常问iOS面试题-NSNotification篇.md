@@ -5,8 +5,8 @@ tags:
   - NSNotification
 toc: true
 categories:
-  - iOS
-  - iOS面试题
+  - iOS开发
+  - 面试题
 abbrlink: 2bf627ae
 date: 2024-03-02 22:08:39
 ---

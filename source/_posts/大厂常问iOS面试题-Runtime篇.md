@@ -5,8 +5,8 @@ tags:
   - Runtime
 toc: true
 categories:
-  - iOS
-  - iOS面试题
+  - iOS开发
+  - 面试题
 abbrlink: 56ea4065
 date: 2024-03-01 13:57:16
 ---

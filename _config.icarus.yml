@@ -147,6 +147,7 @@ article:
         fold: unfolded
     # Whether to show estimated article reading time
     readtime: true
+    thumbnail: true
     # Whether to show updated time. For "auto", shows article update time only when page.updated is set and it is different from page.date
     update_time: true
     # Article licensing block
@@ -287,12 +288,7 @@ widgets:
         type: links
         # Names and URLs of the sites
         links:
-            出售: ""
-            iOS各种白包马甲包: ""
-            国外高质量个人公司iOS开发者账号: ""
-            联系方式QQ:1756110665: ""
             iOS审核上架交流群: https://qm.qq.com/cgi-bin/qm/qr?k=rTH0EcmelH7hsRL9MkYD1Xw8m7RT4NNV&jump_from=webapi&authKey=B+kszDp7XNLzePIu1HeGOokQtbHdJW79aOFDatCgh/dWveDNDOJ+KHAbSdrvelkR
-            点击上方👆自动添加QQ群:251785762: ""
 
     # Categories widget configurations
     -
@@ -310,16 +306,16 @@ widgets:
         position: left
         type: archives
     # Tags widget configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: tags
-        # How to order tags. For example 'name' to order by name in ascending order, and '-length' to order by number of posts in each tags in descending order
-        order_by: name
-        # Amount of tags to show. Will show all if not set.
-        amount: 
-        # Whether to show tags count, i.e. number of posts in the tag.
-        show_count: true
+#    -
+#        # Where should the widget be placed, left sidebar or right sidebar
+#        position: left
+#        type: tags
+#        # How to order tags. For example 'name' to order by name in ascending order, and '-length' to order by number of posts in each tags in descending order
+#        order_by: name
+#        # Amount of tags to show. Will show all if not set.
+#        amount: 
+#        # Whether to show tags count, i.e. number of posts in the tag.
+#        show_count: true
     # Google FeedBurner email subscription widget configurations
 #    -
 #        # Where should the widget be placed, left sidebar or right sidebar

@@ -5,8 +5,8 @@ tags:
   - 多线程
 toc: true
 categories:
-  - iOS
-  - iOS面试题
+  - iOS开发
+  - 面试题
 abbrlink: b46135b
 date: 2024-03-01 14:51:50
 ---

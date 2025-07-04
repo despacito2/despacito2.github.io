@@ -5,8 +5,8 @@ tags:
   - Runloop
 toc: true
 categories:
-  - iOS
-  - iOS面试题
+  - iOS开发
+  - 面试题
 abbrlink: c985851c
 date: 2024-03-01 10:34:56
 ---

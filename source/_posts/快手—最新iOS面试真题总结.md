@@ -5,8 +5,8 @@ tags:
   - 快手
 toc: true
 categories:
-  - iOS
-  - iOS面试真题
+  - iOS开发
+  - 面试题
 abbrlink: 1fe28a79
 date: 2024-03-02 23:15:31
 ---

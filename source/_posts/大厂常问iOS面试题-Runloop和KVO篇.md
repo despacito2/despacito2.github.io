@@ -5,8 +5,8 @@ tags:
   - Runloop&KVO
 toc: true
 categories:
-  - iOS
-  - iOS面试题
+  - iOS开发
+  - 面试题
 abbrlink: 1e8a5be3
 date: 2024-03-02 22:26:19
 ---
