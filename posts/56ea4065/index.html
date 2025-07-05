@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="google-site-verification" content="4xeRrGz75ndIdizFDms5sFLsaZXJ4UfzKvxLBsSZKS8"><meta name="robots" content="index, follow"><title>大厂常问iOS面试题--Runtime篇 - 人间正道</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="人间正道是沧桑"><meta name="msapplication-TileImage" content="images/faviconNew.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="人间正道是沧桑"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="1.什么是Runtime在 Objective-C 中，Runtime 是一套 C 语言的 API，用于在运行时操作对象、类和元类。通过 Objective-C Runtime，开发者可以在程序运行时动态地创建类、修改类的方法、获取类的属性信息、发送消息等。这使得 Objective-C 具有了诸多动态语言的特性，如动态绑定、消息转发、方法调用等。 2.Category 的实现原理？ Catego"><meta property="og:type" content="blog"><meta property="og:title" content="大厂常问iOS面试题--Runtime篇"><meta property="og:url" content="https://despacito2.github.io/posts/56ea4065/"><meta property="og:site_name" content="人间正道"><meta property="og:description" content="1.什么是Runtime在 Objective-C 中，Runtime 是一套 C 语言的 API，用于在运行时操作对象、类和元类。通过 Objective-C Runtime，开发者可以在程序运行时动态地创建类、修改类的方法、获取类的属性信息、发送消息等。这使得 Objective-C 具有了诸多动态语言的特性，如动态绑定、消息转发、方法调用等。 2.Category 的实现原理？ Catego"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://despacito2.github.io/img/og_image.png"><meta property="article:published_time" content="2024-03-01T05:57:16.000Z"><meta property="article:modified_time" content="2025-07-04T12:04:56.930Z"><meta property="article:author" content="人间正道"><meta property="article:tag" content="iOS面试题"><meta property="article:tag" content="Runtime"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://despacito2.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://despacito2.github.io/"},"headline":"大厂常问iOS面试题--Runtime篇","image":["https://despacito2.github.io/img/og_image.png"],"datePublished":"2024-03-01T05:57:16.000Z","dateModified":"2025-07-04T12:04:56.930Z","author":{"@type":"Person","name":"人间正道"},"publisher":{"@type":"Organization","name":"人间正道","logo":{"@type":"ImageObject","url":"https://despacito2.github.io/images/logo.png"}},"description":"1.什么是Runtime在 Objective-C 中，Runtime 是一套 C 语言的 API，用于在运行时操作对象、类和元类。通过 Objective-C Runtime，开发者可以在程序运行时动态地创建类、修改类的方法、获取类的属性信息、发送消息等。这使得 Objective-C 具有了诸多动态语言的特性，如动态绑定、消息转发、方法调用等。 2.Category 的实现原理？ Catego"}</script><link rel="canonical" href="https://despacito2.github.io/posts/56ea4065/"><link rel="icon" href="/images/faviconNew.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><script data-ad-client="ca-pub-4191566366727150" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/images/logo.png" alt="人间正道" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">文章</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/page">好文收录</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/despacito2"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-01T05:57:16.000Z" title="2024/3/1 13:57:16">2024-03-01</time>发表</span><span class="level-item"><time dateTime="2025-07-04T12:04:56.930Z" title="2025/7/4 20:04:56">2025-07-04</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/iOS%E5%BC%80%E5%8F%91/">iOS开发</a><span> / </span><a class="link-muted" href="/categories/iOS%E5%BC%80%E5%8F%91/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span><span class="level-item">18 分钟读完 (大约2664个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">大厂常问iOS面试题--Runtime篇</h1><div class="content"><h2 id="1-什么是Runtime"><a href="#1-什么是Runtime" class="headerlink" title="1.什么是Runtime"></a>1.什么是Runtime</h2><p>在 Objective-C 中，Runtime 是一套 C 语言的 API，用于在运行时操作对象、类和元类。通过 Objective-C Runtime，开发者可以在程序运行时动态地创建类、修改类的方法、获取类的属性信息、发送消息等。这使得 Objective-C 具有了诸多动态语言的特性，如动态绑定、消息转发、方法调用等。</p>
+<h2 id="2-Category-的实现原理？"><a href="#2-Category-的实现原理？" class="headerlink" title="2.Category 的实现原理？"></a>2.Category 的实现原理？</h2><ul>
+<li><p>Category 实际上是 Category_t的结构体，在运行时，新添加的方法，都被以倒序插入到原有方法列表的最前面，所以不同的Category，添加了同一个方法，执行的实际上是最后一个。</p>
+</li>
+<li><p>Category 在刚刚编译完的时候，和原来的类是分开的，只有在程序运行起来后，通过 Runtime ，Category 和原来的类才会合并到一起。</p>
+</li>
+</ul>
+<h2 id="3-isa指针的理解，对象的isa指针指向哪里？isa指针有哪两种类型？"><a href="#3-isa指针的理解，对象的isa指针指向哪里？isa指针有哪两种类型？" class="headerlink" title="3.isa指针的理解，对象的isa指针指向哪里？isa指针有哪两种类型？"></a>3.isa指针的理解，对象的isa指针指向哪里？isa指针有哪两种类型？</h2><ul>
+<li><p>isa 等价于 is kind of</p>
+<p>实例对象的 isa 指向类对象</p>
+<p>类对象的 isa 指向元类对象</p>
+<p>元类对象的 isa 指向元类的基类</p>
+</li>
+<li><p>isa 有两种类型</p>
+<p>纯指针，指向内存地址</p>
+<p><code>NON_POINTER_ISA</code>，除了内存地址，还存有一些其他信息</p>
+</li>
+</ul>
+<h2 id="4-Objective-C-如何实现多重继承？"><a href="#4-Objective-C-如何实现多重继承？" class="headerlink" title="4.Objective-C 如何实现多重继承？"></a>4.Objective-C 如何实现多重继承？</h2><p>Object-c的类没有多继承,只支持单继承,如果要实现多继承的话，可使用如下几种方式间接实现</p>
+<ul>
+<li><p>通过组合实现</p>
+<p>A和B组合，作为C类的组件</p>
+</li>
+<li><p>通过协议实现</p>
+<p>C类实现A和B类的协议方法</p>
+</li>
+<li><p>消息转发实现</p>
+<p><code>forwardInvocation:</code>方法</p>
+</li>
+</ul>
+<h2 id="5-runtime-如何实现-weak-属性？"><a href="#5-runtime-如何实现-weak-属性？" class="headerlink" title="5.runtime 如何实现 weak 属性？"></a>5.runtime 如何实现 weak 属性？</h2><p>weak 此特质表明该属性定义了一种「非拥有关系」(nonowning relationship)。为这种属性设置新值时，设置方法既不持有新值（新指向的对象），也不释放旧值（原来指向的对象）。</p>
+<p>runtime 对注册的类，会进行内存布局，从一个粗粒度的概念上来讲，这时候会有一个 hash 表，这是一个全局表，表中是用 weak 指向的对象内存地址作为 key，用所有指向该对象的 weak 指针表作为 value。当此对象的引用计数为 0 的时候会 dealloc，假如该对象内存地址是 a，那么就会以 a 为 key，在这个 weak 表中搜索，找到所有以 a 为键的 weak 对象，从而设置为 nil。</p>
+<p>runtime 如何实现 weak 属性具体流程大致分为 3 步：</p>
+<ul>
+<li><p><strong>1、初始化时</strong>：runtime 会调用 objc_initWeak 函数，初始化一个新的 weak 指针指向对象的地址。</p>
+</li>
+<li><p><strong>2、添加引用时</strong>：<code>objc_initWeak</code> 函数会调用 <code>objc_storeWeak()</code> 函数，<code>objc_storeWeak()</code> 的作用是更新指针指向（指针可能原来指向着其他对象，这时候需要将该 weak 指针与旧对象解除绑定，会调用到 <code>weak_unregister_no_lock</code>），如果指针指向的新对象非空，则创建对应的弱引用表，将 weak 指针与新对象进行绑定，会调用到 weak_register_no_lock。在这个过程中，为了防止多线程中竞争冲突，会有一些锁的操作。</p>
+</li>
+<li><p><strong>3、释放时</strong>：调用 <code>clearDeallocating</code> 函数，<code>clearDeallocating</code> 函数首先根据对象地址获取所有 weak 指针地址的数组，然后遍历这个数组把其中的数据设为 nil，最后把这个 entry 从 weak 表中删除，最后清理对象的记录。</p>
+</li>
+</ul>
+<h2 id="6-讲一下-OC-的消息机制"><a href="#6-讲一下-OC-的消息机制" class="headerlink" title="6.讲一下 OC 的消息机制"></a>6.讲一下 OC 的消息机制</h2><p>Objective-C 的消息机制是其动态消息传递的核心特性，它是 Objective-C 语言中实现方法调用的机制。在 Objective-C 中，对象之间的通信是通过向对象发送消息来实现的，而不是像其他语言那样直接调用方法。</p>
+<p>消息机制的基本原理如下：</p>
+<ul>
+<li><p><strong>1、方法调用</strong>：在 Objective-C 中，调用对象的方法实际上是向对象发送一个消息。消息由方法名和对应的参数组成。</p>
+</li>
+<li><p><strong>2、动态绑定</strong>：在编译时，编译器并不会确定对象接收到消息时应该调用的具体方法，而是在运行时根据对象的类和方法选择器（selector）来动态确定调用的方法。这种动态确定方法的过程称为动态绑定。</p>
+</li>
+<li><p><strong>3、消息传递</strong>：当一个对象接收到消息时，Objective-C 运行时会根据消息的方法选择器（selector）在对象所属的类的方法列表（method list）中查找相应的方法实现。如果找到了匹配的方法实现，则调用该方法；如果找不到匹配的方法实现，则会执行消息转发（message forwarding）过程。</p>
+</li>
+<li><p>4、<strong>消息转发</strong>：当运行时无法在类的方法列表中找到与消息相匹配的方法实现时，Objective-C 运行时会调用对象的 <code>forwardingTargetForSelector:</code> 方法，尝试将消息转发给另一个对象处理。如果该方法返回一个有效的对象，则将消息转发给该对象；如果返回 nil，则会继续执行下一步的消息转发机制。</p>
+</li>
+<li><p><strong>5、动态方法解析</strong>：如果 <code>forwardingTargetForSelector:</code> 方法没有返回有效的对象，Objective-C 运行时会调用对象的 <code>resolveInstanceMethod:</code> 或 <code>resolveClassMethod:</code> 方法，尝试动态地添加方法实现。如果成功添加了方法实现，则会重新执行消息传递过程；如果仍然无法找到相应的方法实现，则会执行最后一步的消息转发机制。</p>
+</li>
+<li><p><strong>6、完整的消息转发</strong>：如果动态方法解析仍然无法找到相应的方法实现，则 Objective-C 运行时会调用对象的 <code>forwardInvocation:</code> 方法，将原始的未知消息封装成一个 <code>NSInvocation</code> 对象，并传递给 <code>forwardInvocation:</code> 方法进行处理。开发者可以在该方法中自定义处理未知消息的逻辑，例如将消息转发给其他对象进行处理。</p>
+</li>
+</ul>
+<h2 id="7-runtime具体应用"><a href="#7-runtime具体应用" class="headerlink" title="7.runtime具体应用"></a>7.runtime具体应用</h2><ul>
+<li><p>利用关联对象（AssociatedObject）给分类添加属性</p>
+</li>
+<li><p>遍历类的所有成员变量（修改textfield的占位文字颜色、字典转模型、自动归档解档）</p>
+</li>
+<li><p>交换方法实现（交换系统的方法）</p>
+</li>
+<li><p>利用消息转发机制解决方法找不到的异常问题</p>
+</li>
+<li><p>KVC 字典转模型</p>
+</li>
+</ul>
+<h2 id="8-runtime如何通过selector找到对应的IMP地址？"><a href="#8-runtime如何通过selector找到对应的IMP地址？" class="headerlink" title="8.runtime如何通过selector找到对应的IMP地址？"></a>8.runtime如何通过selector找到对应的IMP地址？</h2><p>每一个类对象中都一个对象方法列表（对象方法缓存）</p>
+<ul>
+<li><p>类方法列表是存放在类对象中isa指针指向的元类对象中（类方法缓存）。</p>
+</li>
+<li><p>方法列表中每个方法结构体中记录着方法的名称,方法实现,以及参数类型，其实selector本质就是方法名称,通过这个方法名称就可以在方法列表中找到对应的方法实现。</p>
+</li>
+<li><p>当我们发送一个消息给一个NSObject对象时，这条消息会在对象的类对象方法列表里查找。</p>
+</li>
+<li><p>当我们发送一个消息给一个类时，这条消息会在类的Meta Class对象的方法列表里查找。</p>
+</li>
+</ul>
+<h2 id="9-简述下Objective-C中调用方法的过程"><a href="#9-简述下Objective-C中调用方法的过程" class="headerlink" title="9.简述下Objective-C中调用方法的过程"></a>9.简述下Objective-C中调用方法的过程</h2><p>Objective-C是动态语言，每个方法在运行时会被动态转为消息发送，即：objc_msgSend(receiver, selector)，整个过程介绍如下：</p>
+<ul>
+<li><p>objc在向一个对象发送消息时，runtime库会根据对象的isa指针找到该对象实际所属的类</p>
+</li>
+<li><p>然后在该类中的方法列表以及其父类方法列表中寻找方法运行</p>
+</li>
+<li><p>如果，在最顶层的父类（一般也就NSObject）中依然找不到相应的方法时，程序在运行时会挂掉并抛出异常unrecognized selector sent to XXX</p>
+</li>
+<li><p>但是在这之前，objc的运行时会给出三次拯救程序崩溃的机会，这三次拯救程序奔溃的说明见问题《什么时候会报unrecognized selector的异常》中的说明。</p>
+</li>
+</ul>
+<h2 id="10-load和initialize的区别"><a href="#10-load和initialize的区别" class="headerlink" title="10.load和initialize的区别"></a>10.load和initialize的区别</h2><p>两者都会自动调用父类的，不需要super操作，且仅会调用一次（不包括外部显示调用).</p>
+<ul>
+<li><p>load和initialize方法都会在实例化对象之前调用，以main函数为分水岭，前者在main函数之前调用，后者在之后调用。这两个方法会被自动调用，不能手动调用它们。</p>
+</li>
+<li><p>load和initialize方法都不用显示的调用父类的方法而是自动调用，即使子类没有initialize方法也会调用父类的方法，而load方法则不会调用父类。</p>
+</li>
+<li><p>load方法通常用来进行Method Swizzle，initialize方法一般用于初始化全局变量或静态变量。</p>
+</li>
+<li><p>load和initialize方法内部使用了锁，因此它们是线程安全的。实现时要尽可能保持简单，避免阻塞线程，不要再使用锁。</p>
+</li>
+</ul>
+<h2 id="11-怎么理解Objective-C是动态运行时语言。"><a href="#11-怎么理解Objective-C是动态运行时语言。" class="headerlink" title="11.怎么理解Objective-C是动态运行时语言。"></a>11.怎么理解Objective-C是动态运行时语言。</h2><ul>
+<li><p>主要是将数据类型的确定由编译时,推迟到了运行时。这个问题其实浅涉及到两个概念,运行时和多态。</p>
+</li>
+<li><p>简单来说, 运行时机制使我们直到运行时才去决定一个对象的类别,以及调用该类别对象指定方法。</p>
+</li>
+<li><p>多态:不同对象以自己的方式响应相同的消息的能力叫做多态。</p>
+</li>
+<li><p>意思就是假设生物类(life)都拥有一个相同的方法-eat;那人类属于生物,猪也属于生物,都继承了life后,实现各自的eat,但是调用是我们只需调用各自的eat方法。也就是不同的对象以自己的方式响应了相同的消 息(响应了eat这个选择器)。因此也可以说,运行时机制是多态的基础.</p>
+</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>大厂常问iOS面试题--Runtime篇</p><p><a href="https://despacito2.github.io/posts/56ea4065/">https://despacito2.github.io/posts/56ea4065/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>人间正道</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-03-01</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2025-07-04</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/iOS%E9%9D%A2%E8%AF%95%E9%A2%98/">iOS面试题</a><a class="link-muted mr-2" rel="tag" href="/tags/Runtime/">Runtime</a></div><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_telegram"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_reddit"></a></div><script src="https://static.addtoany.com/menu/page.js" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/images/AliPay.jpg" alt="支付宝"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/images/Wechat.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/posts/d873727c/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">大厂常问iOS面试题--内存管理篇</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/posts/c985851c/"><span class="level-item">大厂常问iOS面试题--Runloop篇</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="SOHUCS" sid="posts/56ea4065/"></div><script charset="utf-8" src="https://changyan.sohu.com/upload/changyan.js"></script><script>window.changyan.api.config({appid: 'cyxaFSXEM',conf: 'prod_4a835e972e932e50e03bc48f94446cd3'});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/logoNew.svg" alt="置身于正，勇于攀登"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">置身于正，勇于攀登</p><p class="is-size-6 is-block">大丈夫生于天地间 岂能郁郁久居人下</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国·成都</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">97</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/despacito2"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/WTF_C69"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://qm.qq.com/cgi-bin/qm/qr?k=rTH0EcmelH7hsRL9MkYD1Xw8m7RT4NNV&amp;jump_from=webapi&amp;authKey=B+kszDp7XNLzePIu1HeGOokQtbHdJW79aOFDatCgh/dWveDNDOJ+KHAbSdrvelkR" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">iOS审核上架交流群</span></span><span class="level-right"><span class="level-item tag">qm.qq.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/iOS%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">iOS开发</span></span><span class="level-end"><span class="level-item tag">24</span></span></a><ul><li><a class="level is-mobile" href="/categories/iOS%E5%BC%80%E5%8F%91/%E9%9D%A2%E8%AF%95%E9%A2%98/"><span class="level-start"><span class="level-item">面试题</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/"><span class="level-start"><span class="level-item">好文收录</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/"><span class="level-start"><span class="level-item">缠论原文</span></span><span class="level-end"><span class="level-item tag">20</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2025/07/"><span class="level-start"><span class="level-item">七月 2025</span></span><span class="level-end"><span class="level-item tag">20</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4191566366727150" data-ad-slot="4095483014" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#1-什么是Runtime"><span class="level-left"><span class="level-item">1.什么是Runtime</span></span></a></li><li><a class="level is-mobile" href="#2-Category-的实现原理？"><span class="level-left"><span class="level-item">2.Category 的实现原理？</span></span></a></li><li><a class="level is-mobile" href="#3-isa指针的理解，对象的isa指针指向哪里？isa指针有哪两种类型？"><span class="level-left"><span class="level-item">3.isa指针的理解，对象的isa指针指向哪里？isa指针有哪两种类型？</span></span></a></li><li><a class="level is-mobile" href="#4-Objective-C-如何实现多重继承？"><span class="level-left"><span class="level-item">4.Objective-C 如何实现多重继承？</span></span></a></li><li><a class="level is-mobile" href="#5-runtime-如何实现-weak-属性？"><span class="level-left"><span class="level-item">5.runtime 如何实现 weak 属性？</span></span></a></li><li><a class="level is-mobile" href="#6-讲一下-OC-的消息机制"><span class="level-left"><span class="level-item">6.讲一下 OC 的消息机制</span></span></a></li><li><a class="level is-mobile" href="#7-runtime具体应用"><span class="level-left"><span class="level-item">7.runtime具体应用</span></span></a></li><li><a class="level is-mobile" href="#8-runtime如何通过selector找到对应的IMP地址？"><span class="level-left"><span class="level-item">8.runtime如何通过selector找到对应的IMP地址？</span></span></a></li><li><a class="level is-mobile" href="#9-简述下Objective-C中调用方法的过程"><span class="level-left"><span class="level-item">9.简述下Objective-C中调用方法的过程</span></span></a></li><li><a class="level is-mobile" href="#10-load和initialize的区别"><span class="level-left"><span class="level-item">10.load和initialize的区别</span></span></a></li><li><a class="level is-mobile" href="#11-怎么理解Objective-C是动态运行时语言。"><span class="level-left"><span class="level-item">11.怎么理解Objective-C是动态运行时语言。</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-05T15:44:51.000Z">2025-07-05</time></p><p class="title"><a href="/posts/46500/">教你炒股票20：缠中说禅走势中枢级别扩张及第三类买卖点</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-05T15:44:12.000Z">2025-07-05</time></p><p class="title"><a href="/posts/31862/">教你炒股票19：学习缠中说禅技术分析理论的关键</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-05T15:43:51.000Z">2025-07-05</time></p><p class="title"><a href="/posts/53614/">教你炒股票18：不被面首的雏男是不完美的</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-05T15:42:51.000Z">2025-07-05</time></p><p class="title"><a href="/posts/27232/">教你炒股票17：走势终完美</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-05T15:41:51.000Z">2025-07-05</time></p><p class="title"><a href="/posts/36133/">教你炒股票16：中小资金的高效买卖法</a></p><p class="categories"><a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/">好文收录</a> / <a href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/">缠论原文</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/images/logo.png" alt="人间正道" height="28"></a><p class="is-size-7"><span>&copy; 2025 人间正道</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/despacito2"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
