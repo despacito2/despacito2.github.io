@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="google-site-verification" content="4xeRrGz75ndIdizFDms5sFLsaZXJ4UfzKvxLBsSZKS8"><meta name="robots" content="index, follow"><title>sing-box DNS 功能详解与最佳实践 - 人间正道</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="人间正道是沧桑"><meta name="msapplication-TileImage" content="images/faviconNew.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="人间正道是沧桑"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="本文全面介绍 sing-box 中 DNS 模块的功能，包括 DoH&amp;#x2F;DoT&amp;#x2F;DoQ 支持、DNS 分流、广告拦截、DNS 劫持、缓存设置等，并提供功能速查表与示例配置，助你实现高效稳定的 DNS 管理。"><meta property="og:type" content="blog"><meta property="og:title" content="sing-box DNS 功能详解与最佳实践"><meta property="og:url" content="https://despacito2.github.io/posts/57dee22/"><meta property="og:site_name" content="人间正道"><meta property="og:description" content="本文全面介绍 sing-box 中 DNS 模块的功能，包括 DoH&amp;#x2F;DoT&amp;#x2F;DoQ 支持、DNS 分流、广告拦截、DNS 劫持、缓存设置等，并提供功能速查表与示例配置，助你实现高效稳定的 DNS 管理。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://despacito2.github.io/img/og_image.png"><meta property="article:published_time" content="2025-07-07T01:00:00.000Z"><meta property="article:modified_time" content="2025-07-08T13:34:37.176Z"><meta property="article:author" content="人间正道"><meta property="article:tag" content="DNS"><meta property="article:tag" content="sing-box"><meta property="article:tag" content="科学上网"><meta property="article:tag" content="分流"><meta property="article:tag" content="广告拦截"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://despacito2.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://despacito2.github.io/"},"headline":"sing-box DNS 功能详解与最佳实践","image":["https://despacito2.github.io/img/og_image.png"],"datePublished":"2025-07-07T01:00:00.000Z","dateModified":"2025-07-08T13:34:37.176Z","author":{"@type":"Person","name":"人间正道"},"publisher":{"@type":"Organization","name":"人间正道","logo":{"@type":"ImageObject","url":"https://despacito2.github.io/images/logo.png"}},"description":"本文全面介绍 sing-box 中 DNS 模块的功能，包括 DoH&#x2F;DoT&#x2F;DoQ 支持、DNS 分流、广告拦截、DNS 劫持、缓存设置等，并提供功能速查表与示例配置，助你实现高效稳定的 DNS 管理。"}</script><link rel="canonical" href="https://despacito2.github.io/posts/57dee22/"><link rel="icon" href="/images/faviconNew.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><script data-ad-client="ca-pub-4191566366727150" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/images/logo.png" alt="人间正道" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">文章</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95">好文收录</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/despacito2"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-07-07T01:00:00.000Z" title="2025/7/7 09:00:00">2025-07-07</time>发表</span><span class="level-item"><time dateTime="2025-07-08T13:34:37.176Z" title="2025/7/8 21:34:37">2025-07-08</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/sing-box/">sing-box</a><span> / </span><a class="link-muted" href="/categories/sing-box/%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/">配置详解</a></span><span class="level-item">4 分钟读完 (大约578个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">sing-box DNS 功能详解与最佳实践</h1><div class="content"><p><code>sing-box</code> 的 <code>dns</code> 模块不仅实现了基本的域名解析功能，还支持诸多进阶特性，广泛适用于分流、隐私保护、广告拦截、性能优化等场景。</p>
+<hr>
+<span id="more"></span>
+
+<h2 id="🧠-一、基本功能"><a href="#🧠-一、基本功能" class="headerlink" title="🧠 一、基本功能"></a>🧠 一、基本功能</h2><h3 id="1-DNS-查询解析"><a href="#1-DNS-查询解析" class="headerlink" title="1. DNS 查询解析"></a>1. DNS 查询解析</h3><ul>
+<li>支持多种协议：<ul>
+<li><code>UDP</code></li>
+<li><code>TCP</code></li>
+<li><code>DoH</code>（DNS over HTTPS）</li>
+<li><code>DoT</code>（DNS over TLS）</li>
+<li><code>DoQ</code>（DNS over QUIC）</li>
+</ul>
+</li>
+<li>可配置多个 DNS 服务器，支持优先级、备用等机制。</li>
+</ul>
+<h3 id="2-自定义域名解析（hosts）"><a href="#2-自定义域名解析（hosts）" class="headerlink" title="2. 自定义域名解析（hosts）"></a>2. 自定义域名解析（hosts）</h3><p>可替代系统的 <code>hosts</code> 文件，配置方式如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;hosts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;example.com&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.2.3.4&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🧰-二、增强功能"><a href="#🧰-二、增强功能" class="headerlink" title="🧰 二、增强功能"></a>🧰 二、增强功能</h2><h3 id="3-域名分类与分流（规则匹配）"><a href="#3-域名分类与分流（规则匹配）" class="headerlink" title="3. 域名分类与分流（规则匹配）"></a>3. 域名分类与分流（规则匹配）</h3><p>可通过 <code>rules</code> 使用不同 DNS 服务器，例如：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;domain&quot;</span><span class="punctuation">:</span> <span class="string">&quot;geosite:cn&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns_local&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;domain&quot;</span><span class="punctuation">:</span> <span class="string">&quot;geosite:category-ads-all&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns_block&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-域名缓存配置"><a href="#4-域名缓存配置" class="headerlink" title="4. 域名缓存配置"></a>4. 域名缓存配置</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;cache&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;size&quot;</span><span class="punctuation">:</span> <span class="number">4096</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;min_ttl&quot;</span><span class="punctuation">:</span> <span class="number">60</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;max_ttl&quot;</span><span class="punctuation">:</span> <span class="number">86400</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-负载均衡（IP-选择策略）"><a href="#5-负载均衡（IP-选择策略）" class="headerlink" title="5. 负载均衡（IP 选择策略）"></a>5. 负载均衡（IP 选择策略）</h3><ul>
+<li>可按 <code>round-robin</code> 等方式选择多个解析结果。</li>
+<li>支持 fallback 自动切换。</li>
+</ul>
+<h3 id="6-DNS-fallback"><a href="#6-DNS-fallback" class="headerlink" title="6. DNS fallback"></a>6. DNS fallback</h3><p>主 DNS 不可用时自动使用备用 DNS。</p>
+<hr>
+<h2 id="🧱-三、进阶功能"><a href="#🧱-三、进阶功能" class="headerlink" title="🧱 三、进阶功能"></a>🧱 三、进阶功能</h2><h3 id="7-DNS-劫持（Hijack）"><a href="#7-DNS-劫持（Hijack）" class="headerlink" title="7. DNS 劫持（Hijack）"></a>7. DNS 劫持（Hijack）</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;hijack&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;domain&quot;</span><span class="punctuation">:</span> <span class="string">&quot;example.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;ip&quot;</span><span class="punctuation">:</span> <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="8-广告域名拦截"><a href="#8-广告域名拦截" class="headerlink" title="8. 广告域名拦截"></a>8. 广告域名拦截</h3><p>结合规则 <code>geosite:category-ads-all</code> 可实现广告拦截。</p>
+<h3 id="9-过滤污染-无效解析"><a href="#9-过滤污染-无效解析" class="headerlink" title="9. 过滤污染&#x2F;无效解析"></a>9. 过滤污染&#x2F;无效解析</h3><ul>
+<li>过滤非 A&#x2F;AAAA 类型的记录；</li>
+<li>屏蔽伪造 IP 返回（如被污染的解析）。</li>
+</ul>
+<hr>
+<h2 id="🌐-四、隐私与安全相关"><a href="#🌐-四、隐私与安全相关" class="headerlink" title="🌐 四、隐私与安全相关"></a>🌐 四、隐私与安全相关</h2><h3 id="10-支持加密-DNS-协议"><a href="#10-支持加密-DNS-协议" class="headerlink" title="10. 支持加密 DNS 协议"></a>10. 支持加密 DNS 协议</h3><ul>
+<li>✅ DoH</li>
+<li>✅ DoT</li>
+<li>✅ DoQ</li>
+</ul>
+<h3 id="11-防泄漏能力"><a href="#11-防泄漏能力" class="headerlink" title="11. 防泄漏能力"></a>11. 防泄漏能力</h3><ul>
+<li>可关闭系统 DNS；</li>
+<li>配合 TUN 模式劫持所有 DNS 请求；</li>
+<li>本地 DNS 与远程 DNS 联合使用，提升安全性。</li>
+</ul>
+<hr>
+<h2 id="🧭-五、与-TUN-分流协同使用"><a href="#🧭-五、与-TUN-分流协同使用" class="headerlink" title="🧭 五、与 TUN 分流协同使用"></a>🧭 五、与 TUN 分流协同使用</h2><ul>
+<li>DNS 是 TUN 分流的核心依据；</li>
+<li>搭配 <code>sniffing</code> 功能，根据解析出的域名进行策略分流；</li>
+<li>DNS 结果直接影响实际走哪个节点。</li>
+</ul>
+<hr>
+<h2 id="✅-功能速查表"><a href="#✅-功能速查表" class="headerlink" title="✅ 功能速查表"></a>✅ 功能速查表</h2><table>
+<thead>
+<tr>
+<th>功能项</th>
+<th>支持情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UDP&#x2F;TCP DNS</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>DoH &#x2F; DoT &#x2F; DoQ 支持</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>自定义 hosts</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>DNS 分流（geosite等规则）</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>广告域名拦截</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>缓存 TTL 控制</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>fallback 多 DNS 支持</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>hijack 劫持域名解析</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>DNS 查询隐私保护</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>系统 DNS 禁用</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>sniffing 联动</td>
+<td>✅</td>
+</tr>
+</tbody></table>
+<hr>
+<p>如需示例配置文件或完整模板，欢迎留言获取。</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>sing-box DNS 功能详解与最佳实践</p><p><a href="https://despacito2.github.io/posts/57dee22/">https://despacito2.github.io/posts/57dee22/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>人间正道</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2025-07-07</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2025-07-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/DNS/">DNS</a><a class="link-muted mr-2" rel="tag" href="/tags/sing-box/">sing-box</a><a class="link-muted mr-2" rel="tag" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a><a class="link-muted mr-2" rel="tag" href="/tags/%E5%88%86%E6%B5%81/">分流</a><a class="link-muted mr-2" rel="tag" href="/tags/%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA/">广告拦截</a></div><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_telegram"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_reddit"></a></div><script src="https://static.addtoany.com/menu/page.js" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/images/AliPay.jpg" alt="支付宝"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/images/Wechat.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/posts/dns-protocols/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">sing-box DNS 协议全解析：DoH、DoT、DoQ、DNSCrypt 等协议详解</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/posts/46500/"><span class="level-item">教你炒股票20：缠中说禅走势中枢级别扩张及第三类买卖点</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="SOHUCS" sid="posts/57dee22/"></div><script charset="utf-8" src="https://changyan.sohu.com/upload/changyan.js"></script><script>window.changyan.api.config({appid: 'cyxaFSXEM',conf: 'prod_4a835e972e932e50e03bc48f94446cd3'});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/logoNew.svg" alt="置身于正，勇于攀登"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">置身于正，勇于攀登</p><p class="is-size-6 is-block">大丈夫生于天地间 岂能郁郁久居人下</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国·成都</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">49</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">118</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/despacito2"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/WTF_C69"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://qm.qq.com/cgi-bin/qm/qr?k=rTH0EcmelH7hsRL9MkYD1Xw8m7RT4NNV&amp;jump_from=webapi&amp;authKey=B+kszDp7XNLzePIu1HeGOokQtbHdJW79aOFDatCgh/dWveDNDOJ+KHAbSdrvelkR" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">iOS审核上架交流群</span></span><span class="level-right"><span class="level-item tag">qm.qq.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/iOS%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">iOS开发</span></span><span class="level-end"><span class="level-item tag">24</span></span></a><ul><li><a class="level is-mobile" href="/categories/iOS%E5%BC%80%E5%8F%91/%E9%9D%A2%E8%AF%95%E9%A2%98/"><span class="level-start"><span class="level-item">面试题</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/sing-box/"><span class="level-start"><span class="level-item">sing-box</span></span><span class="level-end"><span class="level-item tag">5</span></span></a><ul><li><a class="level is-mobile" href="/categories/sing-box/%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/"><span class="level-start"><span class="level-item">配置详解</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/"><span class="level-start"><span class="level-item">好文收录</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%A5%BD%E6%96%87%E6%94%B6%E5%BD%95/%E7%BC%A0%E8%AE%BA%E5%8E%9F%E6%96%87/"><span class="level-start"><span class="level-item">缠论原文</span></span><span class="level-end"><span class="level-item tag">20</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2025/07/"><span class="level-start"><span class="level-item">七月 2025</span></span><span class="level-end"><span class="level-item tag">25</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li></ul></div></div></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4191566366727150" data-ad-slot="4095483014" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#🧠-一、基本功能"><span class="level-left"><span class="level-item">🧠 一、基本功能</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1-DNS-查询解析"><span class="level-left"><span class="level-item">1. DNS 查询解析</span></span></a></li><li><a class="level is-mobile" href="#2-自定义域名解析（hosts）"><span class="level-left"><span class="level-item">2. 自定义域名解析（hosts）</span></span></a></li></ul></li><li><a class="level is-mobile" href="#🧰-二、增强功能"><span class="level-left"><span class="level-item">🧰 二、增强功能</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#3-域名分类与分流（规则匹配）"><span class="level-left"><span class="level-item">3. 域名分类与分流（规则匹配）</span></span></a></li><li><a class="level is-mobile" href="#4-域名缓存配置"><span class="level-left"><span class="level-item">4. 域名缓存配置</span></span></a></li><li><a class="level is-mobile" href="#5-负载均衡（IP-选择策略）"><span class="level-left"><span class="level-item">5. 负载均衡（IP 选择策略）</span></span></a></li><li><a class="level is-mobile" href="#6-DNS-fallback"><span class="level-left"><span class="level-item">6. DNS fallback</span></span></a></li></ul></li><li><a class="level is-mobile" href="#🧱-三、进阶功能"><span class="level-left"><span class="level-item">🧱 三、进阶功能</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#7-DNS-劫持（Hijack）"><span class="level-left"><span class="level-item">7. DNS 劫持（Hijack）</span></span></a></li><li><a class="level is-mobile" href="#8-广告域名拦截"><span class="level-left"><span class="level-item">8. 广告域名拦截</span></span></a></li><li><a class="level is-mobile" href="#9-过滤污染-无效解析"><span class="level-left"><span class="level-item">9. 过滤污染/无效解析</span></span></a></li></ul></li><li><a class="level is-mobile" href="#🌐-四、隐私与安全相关"><span class="level-left"><span class="level-item">🌐 四、隐私与安全相关</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#10-支持加密-DNS-协议"><span class="level-left"><span class="level-item">10. 支持加密 DNS 协议</span></span></a></li><li><a class="level is-mobile" href="#11-防泄漏能力"><span class="level-left"><span class="level-item">11. 防泄漏能力</span></span></a></li></ul></li><li><a class="level is-mobile" href="#🧭-五、与-TUN-分流协同使用"><span class="level-left"><span class="level-item">🧭 五、与 TUN 分流协同使用</span></span></a></li><li><a class="level is-mobile" href="#✅-功能速查表"><span class="level-left"><span class="level-item">✅ 功能速查表</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-07T03:30:00.000Z">2025-07-07</time></p><p class="title"><a href="/posts/dns-ip-strategy/">sing-box DNS IP选择策略与负载均衡实战指南：加速解析与智能路由配置</a></p><p class="categories"><a href="/categories/sing-box/">sing-box</a> / <a href="/categories/sing-box/%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/">配置详解</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-07T03:00:00.000Z">2025-07-07</time></p><p class="title"><a href="/posts/dns-cache-reverse/">sing-box DNS 缓存与反向解析实战指南：原理、配置与性能优化</a></p><p class="categories"><a href="/categories/sing-box/">sing-box</a> / <a href="/categories/sing-box/%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/">配置详解</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-07T02:30:00.000Z">2025-07-07</time></p><p class="title"><a href="/posts/domain-routing/">sing-box 域名分类与分流策略实战：多 DNS 配置与规则使用详解</a></p><p class="categories"><a href="/categories/sing-box/">sing-box</a> / <a href="/categories/sing-box/%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/">配置详解</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-07T02:00:00.000Z">2025-07-07</time></p><p class="title"><a href="/posts/dns-protocols/">sing-box DNS 协议全解析：DoH、DoT、DoQ、DNSCrypt 等协议详解</a></p><p class="categories"><a href="/categories/sing-box/">sing-box</a> / <a href="/categories/sing-box/%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/">配置详解</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-07T01:00:00.000Z">2025-07-07</time></p><p class="title"><a href="/posts/57dee22/">sing-box DNS 功能详解与最佳实践</a></p><p class="categories"><a href="/categories/sing-box/">sing-box</a> / <a href="/categories/sing-box/%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/">配置详解</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/images/logo.png" alt="人间正道" height="28"></a><p class="is-size-7"><span>&copy; 2025 人间正道</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/despacito2"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
