@@ -11,8 +11,8 @@ language: zh-CN
 timezone: Asia/Shanghai
 url: https://despacito2.github.io/
 # permalink: ':year/:month/:day/:title/'
-permalink: ':title/'
-permalink_defaults: null
+#permalink: ':title/'
+#permalink_defaults: null
 pretty_urls:
   trailing_index: true
   trailing_html: true
@@ -65,6 +65,7 @@ exclude: null
 ignore: null
 theme: icarus
 deploy:
+#
   type: git
   repo: https://github.com/despacito2/despacito2.github.io.git
   branch: master
@@ -82,3 +83,7 @@ seo:
   keywords: true
   open_graph: true
   twitter_card: true
+abbrlink:
+  alg: crc32  # or md5
+  rep: hex    # or dec
+permalink: posts/:abbrlink/

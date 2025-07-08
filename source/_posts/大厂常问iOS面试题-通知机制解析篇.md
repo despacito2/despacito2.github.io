@@ -17,6 +17,10 @@ date: 2024-03-02 22:38:52
 
 由于苹果没有对相关源码开放，所以以[GNUStep](https://github.com/gnustep/libs-base)源码为基础进行研究，[GNUStep](https://github.com/gnustep/libs-base)虽然不是苹果官方的源码，但很具有参考意义，根据实现原理来猜测和实践，更重要的还可以学习观察者模式的架构设计
 
+---
+
+<!-- more -->
+
 # 问题列表
 
 先把之前的问题列出来，详细读完本文之后，你会找到答案

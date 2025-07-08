@@ -112,6 +112,7 @@ navbar:
         文章: /archives
         分类: /categories
         标签: /tags
+        好文收录: /categories/好文收录
         # 关于: /about
     # Links to be shown on the right of the navigation bar
     links:

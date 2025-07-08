@@ -28,6 +28,8 @@ toc: true
 
 ---
 
+<!-- more -->
+
 ## 阿里一面真题回顾
 
 这轮面试以基础原理为主，涉及 Objective-C Runtime、KVO、Block、字典原理和方法替换技术等。

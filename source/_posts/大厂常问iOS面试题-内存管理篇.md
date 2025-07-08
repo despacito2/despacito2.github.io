@@ -25,6 +25,10 @@ date: 2024-03-01 14:03:56
   
   assign 可以用非 OC 对象,而 weak 必须用于 OC 对象
 
+---
+
+<!-- more -->
+
 ## 2.如何让自己的类用copy修饰符？如何重写带copy关键字的setter？
 
 - 若想令自己所写的对象具有拷贝功能，则需实现 NSCopying 协议。如果自定义的对象分为可变版本与不可变版本，那么就要同时实现 NSCopying 与 NSMutableCopying 协议。
